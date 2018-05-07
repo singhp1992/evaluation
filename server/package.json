@@ -12,7 +12,9 @@
     "koa-bodyparser": "^4.2.0",
     "koa-multer": "^1.0.2",
     "koa-router": "^7.4.0",
-    "routing-controllers": "^0.7.7"
+    "pg": "^7.4.2",
+    "routing-controllers": "^0.7.7",
+    "typeorm": "^0.2.5"
   },
   "scripts": {
     "start": "node ."
