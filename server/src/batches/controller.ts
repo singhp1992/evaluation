@@ -25,7 +25,8 @@ export default class BatchController {
     async createBatch(
         @Body() batch: Batch
     ) {
-        const entity = await Batch.create()
+        const entity = await batch.save()
+
         return { entity }
     }
     // edits a batch
