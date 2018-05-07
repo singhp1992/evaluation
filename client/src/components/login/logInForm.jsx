@@ -25,7 +25,7 @@ export default class LogInForm extends PureComponent {
                         this.state.email || ''
                     } onChange={this.handleChange} />
                 </div>
-
+                
                 <div>
                     <label htmlFor="password">Password</label>
                     <input type="password" name="password" id="password" value={

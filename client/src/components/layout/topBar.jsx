@@ -19,7 +19,7 @@ const TopBar = (props) => {
         }}>
             <Toolbar>
                 <Typography variant="title" color="inherit" style={{ flex: 1 }}>
-                    Test Your Knowledge
+                    Student Evaluation
         </Typography>
                 {
                     user &&
@@ -35,11 +35,11 @@ const TopBar = (props) => {
                     <Button color="inherit" onClick={() => history.push('/signup')}>Sign Up</Button>
                 }
                 {
-                    location.pathname.indexOf('quizzes/') > 0 &&
-                    <Button color="inherit" onClick={() => history.push('/quizzes')}>All Batches</Button>
+                    location.pathname.indexOf('batches/') > 0 &&
+                    <Button color="inherit" onClick={() => history.push('/batches')}>All Batches</Button>
                 }
                 {
-                    /quizzes$/.test(location.pathname) &&
+                    /batches$/.test(location.pathname) &&
                     <Button color="inherit" onClick={() => history.push('/logout')}>Log Out</Button>
                 }
             </Toolbar>
