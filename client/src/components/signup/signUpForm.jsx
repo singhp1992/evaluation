@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-export default class LoginForm extends PureComponent {
+export default class SignUpForm extends PureComponent {
     state = {}
 
     handleSubmit = (e) => {
@@ -33,7 +33,21 @@ export default class LoginForm extends PureComponent {
                     } onChange={this.handleChange} />
                 </div>
 
-                <button type="submit">Login</button>
+                <div>
+                    <label htmlFor="confirmPassword">Confirm password</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" value={
+                        this.state.confirmPassword || ''
+                    } onChange={this.handleChange} />
+                </div>
+
+                {
+                    this.state.password &&
+                    this.state.confirmPassword &&
+                    this.state.password !== this.state.confirmPassword &&
+                    <p style={{ color: 'red' }}>The passwords do not match!</p>
+                }
+
+                <button type="submit">Sign up</button>
             </form>
         )
     }

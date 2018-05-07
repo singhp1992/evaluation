@@ -1,6 +1,5 @@
 
 import * as request from 'superagent'
-import { baseUrl } from '../constants'
 import { isExpired } from '../jwt'
 
 export const ADD_USER = 'ADD_USER'
@@ -18,6 +17,8 @@ export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
 export const logout = () => ({
     type: USER_LOGOUT
 })
+
+const baseUrl = 'http://localhost:4000'
 
 export const login = (email, password) => (dispatch) =>
     request
