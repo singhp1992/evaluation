@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login } from '../../actions/users'
 import LogInForm from './logInForm'
+import '../components.css'
 
 
 class LogInPage extends PureComponent {

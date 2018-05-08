@@ -8,8 +8,12 @@ import Paper from 'material-ui/Paper'
 class HomePage extends PureComponent {
 
     componentWillMount() {
-        this.props.getBatches()
-    }
+        this.props.getBatches(this.props.match.params.id)
+        }
+
+    // sendResponse = (response) => {
+    //     this.props.sendResponse(response)
+    // }
 
     render() {
         const { batches } = this.props
@@ -19,7 +23,7 @@ class HomePage extends PureComponent {
                 <h1>Home Page</h1>
                 <NewBatch />
                 {batches.map(batch =>
-                    <div className="batchContainer">
+                    <div className="batch">
                         <Link to={`/batches/${batch.id}`}><h2>Batch {batch.batchNum}</h2></Link>
                     </div>
                 )}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { signup } from '../../actions/users'
 import SignUpForm from './signUpForm'
 import { Redirect } from 'react-router-dom'
+import '../components.css'
 
 class SignUpPage extends PureComponent {
     handleSubmit = (data) => {

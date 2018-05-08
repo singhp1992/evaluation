@@ -13,14 +13,14 @@ class BatchPage extends PureComponent {
     }
 
     render() {
-        const { batch, students } = this.props
+        const { batch, student } = this.props
 
         return (
             <Paper className="outer-paper">
                 <h1>Batch {batch.batchNum}</h1>
                 <NewStudent />
-                {students.map(student =>
-                    <div className="studentsContainer">
+                {student.map(student =>
+                    <div className="students">
                         <Link to={`/students/${student.id}`}><h2>{student.name}</h2></Link>
                     </div>
                 )}

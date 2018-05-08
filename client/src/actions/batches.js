@@ -12,15 +12,15 @@ export const GET_STUDENT = 'GET_STUDENT'
 export const ADD_STUDENT = 'ADD_STUDENT'
 export const DELETE_STUDENT = 'DELETE_STUDENT'
 
-export const getBatches = () => (dispatch) => {
+export const getBatches = () => (dispatch, getState) => {
+    const state = getState()
+
     request
         .get(`${baseUrl}/batches`)
-        .then(result => {
-            dispatch({
-                type: GET_BATCHES,
-                payload: result.body
-            })
-        })
+        .then(result => dispatch({
+            type: GET_BATCHES,
+            payload: result.body
+        }))
         .catch(err => console.error(err))
 }
 
@@ -51,7 +51,7 @@ export const addBatch = (batch) => (dispatch) => {
 
 export const getStudents = (batchId) => (dispatch) => {
     request
-        .get(`${baseUrl}/classstudents/${batchId}`)
+        .get(`${baseUrl}/students/${batchId}`)
         .then(result => {
             dispatch({
                 type: GET_STUDENTS,

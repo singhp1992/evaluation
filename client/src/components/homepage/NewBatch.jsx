@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
 import { addBatch } from '../../actions/batches'
+import '../components.css'
 
 
 class NewBatch extends PureComponent {
