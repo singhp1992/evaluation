@@ -14,6 +14,7 @@ export default class Batch extends BaseEntity {
     //@IsDate()
     @Column('text', { nullable: true })
     startDate: string
+    //change to Date?
 
     //@IsDate()
     @Column('text', { nullable: true })
