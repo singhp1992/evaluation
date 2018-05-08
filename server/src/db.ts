@@ -5,6 +5,8 @@ import { snakeCase } from 'typeorm/util/StringUtils'
 //import entities into here
 import User from './users/entity'
 import Batch from './batches/entity'
+import Student from './students/entity'
+import Evaluation from './evaluations/entity'
 
 class CustomNamingStrategy extends DefaultNamingStrategy implements NamingStrategyInterface {
 
@@ -31,7 +33,9 @@ export default () =>
         url: process.env.DATABASE_URL || 'postgres://postgres:secret@localhost:5432/postgres',
         entities: [
             User,
-            Batch
+            Batch,
+            Student,
+            Evaluation
         ],
         synchronize: true,
         logging: true,
