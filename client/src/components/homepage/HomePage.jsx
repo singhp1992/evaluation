@@ -15,20 +15,23 @@ class HomePage extends PureComponent {
     //     this.props.sendResponse(response)
     // }
 
+    // handleSubmit = 
     render() {
         const { batches } = this.props
-
+        console.log(batches.batchNumber)
         return (
             <Paper className="outer-paper">
                 <h1>Home Page</h1>
                 <NewBatch />
                 {batches.map(batch =>
                     <div className="batch">
-                        <Link to={`/batches/${batch.id}`}><h2>Batch {batch.batchNum}</h2></Link>
+                        <Link to={`/batches/${batch.id}`}><h2> {batch.id} </h2></Link>
+                       {/* {batch.batchNum} */}
                     </div>
                 )}
             </Paper>
         )
+        
     }
 }
 

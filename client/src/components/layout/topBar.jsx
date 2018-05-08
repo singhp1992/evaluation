@@ -15,7 +15,7 @@ const TopBar = (props) => {
     return (
         <AppBar position="absolute" style={{
             zIndex: 10,
-            backgroundColor: '#F59057'
+            backgroundColor: '#F59057',
         }}>
             <Toolbar>
                 <Typography variant="title" color="inherit" style={{ flex: 1 }}>

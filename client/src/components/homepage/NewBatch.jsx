@@ -37,16 +37,16 @@ class NewBatch extends PureComponent {
                 />
                 <TextField
                     id='startDate'
-                    name='start'
+                    name='startDate'
                     label='Start Date'
-                    value={this.state.start || ''}
+                    value={this.state.startDate || ''}
                     onChange={this.handleChange}
                 />
                 <TextField
                     id='endDate'
-                    name='end'
+                    name='endDate'
                     label='End Date'
-                    value={this.state.end || ''}
+                    value={this.state.endDate || ''}
                     onChange={this.handleChange}
                 />
                 <Button

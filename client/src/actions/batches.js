@@ -13,8 +13,7 @@ export const ADD_STUDENT = 'ADD_STUDENT'
 export const DELETE_STUDENT = 'DELETE_STUDENT'
 
 export const getBatches = () => (dispatch, getState) => {
-    const state = getState()
-
+    
     request
         .get(`${baseUrl}/batches`)
         .then(result => dispatch({
@@ -50,14 +49,13 @@ export const addBatch = (batch) => (dispatch) => {
 }
 
 export const getStudents = (batchId) => (dispatch) => {
+
     request
         .get(`${baseUrl}/students/${batchId}`)
-        .then(result => {
-            dispatch({
+        .then(result => dispatch({
                 type: GET_STUDENTS,
                 payload: result.body
-            })
-        })
+            }))
         .catch(err => console.error(err))
 }
 
