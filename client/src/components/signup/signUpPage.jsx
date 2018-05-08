@@ -3,20 +3,26 @@ import { connect } from 'react-redux'
 import { signup } from '../../actions/users'
 import SignUpForm from './signUpForm'
 import { Redirect } from 'react-router-dom'
+import '../components.css'
 
 class SignUpPage extends PureComponent {
     handleSubmit = (data) => {
-        this.props.postSignup(data.email, data.password)
+        console.log(this.props)
+        const { firstName, lastName, email, password, teacher } = data
+        // console.log(firstName)
+        this.props.postSignUp(firstName, lastName, email, password, teacher)
     }
 
     render() {
         if (this.props.signup.success) return (
             <Redirect to="/" />
         )
+        console.log(this.props)
+
 
         return (
-            <div>
-                <h1>Sign up</h1>
+            <div className="paper">
+                <h1>Sign Up</h1>
 
                 <SignUpForm onSubmit={this.handleSubmit} />
 
@@ -32,4 +38,4 @@ const mapStateToProps = function (state) {
     }
 }
 
-export default connect(mapStateToProps, { postSignup: signup })(SignUpPage)
+export default connect(mapStateToProps, { postSignUp: signup })(SignUpPage)

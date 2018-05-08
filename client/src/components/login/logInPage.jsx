@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login } from '../../actions/users'
 import LogInForm from './logInForm'
+import Paper from 'material-ui/Paper'
+import '../components.css'
 
 
 class LogInPage extends PureComponent {
@@ -11,18 +13,19 @@ class LogInPage extends PureComponent {
     }
 
     render() {
+        console.log(this.props.currentUser)
         if (this.props.currentUser) return (
             <Redirect to="/batches" />
         )
 
         return (
-            <div>
+            <Paper className="outer-paper">
                 <h1>Login</h1>
 
                 <LogInForm onSubmit={this.handleSubmit} />
 
                 {this.props.error && <span style={{ color: 'red' }}>{this.props.error}</span>}
-            </div>
+            </Paper>
         )
     }
 }
