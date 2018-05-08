@@ -5,10 +5,8 @@ import Batch from './entity'
 export default class BatchController {
     // requests all batches
     @Get('/batches')
-    async allBatches() {
-        const batches = await Batch.find()
-        if (!batches) throw new NotFoundError('Batches table doesn\'t exist')
-        return { batches }
+    allBatches() {
+        return Batch.find()
     }
     // requests one batch
     @Get('/batches/:id')
