@@ -5,10 +5,8 @@ import Student from './entity'
 export default class StudentController {
     // requests all students
     @Get('/students')
-    async allStudents() {
-        const students = await Student.find()
-        if (!students) throw new NotFoundError('Students table doesn\'t exist')
-        return { students }
+    allStudents() {
+        return Student.find()
     }
 
     // requests one student
@@ -17,7 +15,6 @@ export default class StudentController {
         @Param('id') id: number
     ) {
         const student = await Student.findOne(id)
-        //is it find one now or findOneById???
         return { student }
     }
 
@@ -27,7 +24,6 @@ export default class StudentController {
         @Body() student: Student
     ) {
         const entity = await student.save()
-
         return { entity }
     }
 

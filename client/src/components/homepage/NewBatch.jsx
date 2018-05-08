@@ -1,4 +1,3 @@
-
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Button from 'material-ui/Button';
@@ -15,7 +14,6 @@ class NewBatch extends PureComponent {
         this.props.addBatch(this.state)
     }
 
-
     handleChange = (e) => {
         const { name, value } = e.target
 
@@ -23,9 +21,7 @@ class NewBatch extends PureComponent {
             [name]: value
         })
     };
-
     render() {
-
         return (
             <form onSubmit={this.handleSubmit}>
                 <TextField
