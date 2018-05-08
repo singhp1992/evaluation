@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { signup } from '../../actions/users'
 import SignUpForm from './signUpForm'
 import { Redirect } from 'react-router-dom'
+import Paper from 'material-ui/Paper'
 import '../components.css'
 
 class SignUpPage extends PureComponent {
@@ -14,20 +15,20 @@ class SignUpPage extends PureComponent {
     }
 
     render() {
-        if (this.props.signup.success) return (
-            <Redirect to="/" />
-        )
-        console.log(this.props)
+        // if (this.props.signup.success) return (
+        //     <Redirect to="/" />
+        // )
+        // console.log(this.props)
 
 
         return (
-            <div className="paper">
+            <Paper className="outer-paper">
                 <h1>Sign Up</h1>
 
                 <SignUpForm onSubmit={this.handleSubmit} />
 
-                <p style={{ color: 'red' }}>{this.props.signup.error}</p>
-            </div>
+                {/* <p style={{ color: 'red' }}>{this.props.signup.error}</p> */}
+            </Paper>
         )
     }
 }

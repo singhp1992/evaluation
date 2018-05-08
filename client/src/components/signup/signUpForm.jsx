@@ -10,7 +10,6 @@ export default class SignUpForm extends PureComponent {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        // console.log(this)
         this.props.onSubmit(this.state)
     }
 

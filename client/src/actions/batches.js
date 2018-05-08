@@ -1,5 +1,7 @@
 import * as request from 'superagent'
-// import {isExpired} from '../jwt'
+import {isExpired} from '../jwt'
+import { logout } from './users'
+
 
 const baseUrl = 'http://localhost:4000'
 
@@ -12,8 +14,14 @@ export const GET_STUDENT = 'GET_STUDENT'
 export const ADD_STUDENT = 'ADD_STUDENT'
 export const DELETE_STUDENT = 'DELETE_STUDENT'
 
+const newBatch = batch => ({
+    type: ADD_BATCH,
+    payload: batch
+})
+
+
 export const getBatches = () => (dispatch, getState) => {
-    
+    const state = getState()
     request
         .get(`${baseUrl}/batches`)
         .then(result => dispatch({
@@ -35,16 +43,28 @@ export const getBatch = (id) => (dispatch) => {
         .catch(err => console.error(err))
 }
 
-export const addBatch = (batch) => (dispatch) => {
+// export const addBatch = (batch) => (dispatch, getState) => {
+//     request
+//         .post(`${baseUrl}/batches`)
+//         .send(batch)
+//         .then(result => {
+//             dispatch({
+//                 type: ADD_BATCH,
+//                 payload: result.body
+//             })
+//         })
+//         .catch(err => console.error(err))
+// }
+
+export const addBatch = (batch) => (dispatch, getState) => {
+    const state = getState()
+    const jwt = state.currentUser.jwt
+
     request
         .post(`${baseUrl}/batches`)
         .send(batch)
-        .then(result => {
-            dispatch({
-                type: ADD_BATCH,
-                payload: result.body
-            })
-        })
+        .set('Authorization', `Bearer ${jwt}`)
+        .then(result => dispatch(newBatch(batch)))
         .catch(err => console.error(err))
 }
 

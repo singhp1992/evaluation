@@ -13,8 +13,10 @@ class BatchPage extends PureComponent {
     }
 
     render() {
-        const { batch, students } = this.props
-        console.log(students.studentId)
+        //const { batch, students } = this.props
+        const batch = this.props
+        const students = this.props.students
+        //console.log(students.studentId)
 
         return (
             <Paper className="outer-paper">

@@ -14,7 +14,6 @@ export default class BatchController {
         @Param('id') id: number
     ) {
         const batch = await Batch.findOne(id)
-        //is it find one now or findOneById???
         return { batch }
     }
 
