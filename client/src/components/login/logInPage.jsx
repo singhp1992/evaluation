@@ -11,6 +11,7 @@ class LogInPage extends PureComponent {
     }
 
     render() {
+        console.log(this.props.currentUser)
         if (this.props.currentUser) return (
             <Redirect to="/batches" />
         )
