@@ -2,24 +2,20 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { signup } from '../../actions/users'
 import SignUpForm from './signUpForm'
-//import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 import '../components.css'
 
 class SignUpPage extends PureComponent {
     handleSubmit = (data) => {
-        console.log(this.props)
-        const { firstName, lastName, email, password, teacher } = data
-        // console.log(firstName)
-        this.props.postSignUp(firstName, lastName, email, password, teacher)
+        const { firstName, lastName, email, password } = data
+        this.props.postSignUp(firstName, lastName, email, password)
     }
 
     render() {
-        // if (this.props.signup.success) return (
-        //     <Redirect to="/" />
-        // )
-        // console.log(this.props)
-
+        if (this.props.signup.success) return (
+            <Redirect to="/login" />
+        )
 
         return (
             <Paper className="outer-paper">
@@ -27,7 +23,7 @@ class SignUpPage extends PureComponent {
 
                 <SignUpForm onSubmit={this.handleSubmit} />
 
-                {/* <p style={{ color: 'red' }}>{this.props.signup.error}</p> */}
+                <p style={{ color: 'red' }}> {this.props.signup.error}</p>
             </Paper>
         )
     }

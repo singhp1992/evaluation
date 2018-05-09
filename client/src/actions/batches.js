@@ -13,9 +13,10 @@ export const GET_STUDENT = 'GET_STUDENT'
 export const ADD_STUDENT = 'ADD_STUDENT'
 export const DELETE_STUDENT = 'DELETE_STUDENT'
 
-const newBatch = batch => ({
-    type: ADD_BATCH,
-    payload: batch
+
+const fetchBatches = batches => ({
+    type: GET_BATCHES,
+    payload: batches
 })
 
 
@@ -23,10 +24,7 @@ export const getBatches = () => (dispatch, getState) => {
     const state = getState()
     request
         .get(`${baseUrl}/batches`)
-        .then(result => dispatch({
-            type: GET_BATCHES,
-            payload: result.body
-        }))
+        .then(result => dispatch(fetchBatches(result.body)))
         .catch(err => console.error(err))
 }
 
@@ -42,49 +40,57 @@ export const getBatch = (id) => (dispatch) => {
         .catch(err => console.error(err))
 }
 
+const newBatch = batch => ({
+    type: ADD_BATCH,
+    payload: batch
+})
+
 export const addBatch = (batch) => (dispatch, getState) => {
     const state = getState()
 
     request
-        .post(`${baseUrl}/batches`)
+        .post(`${baseUrl}/batches/`)
         .send(batch)
         .then(result => dispatch(newBatch(batch)))
         .catch(err => console.error(err))
 }
 
-export const getStudents = (batchId) => (dispatch) => {
+const fetchStudents = students => ({
+    type: GET_STUDENTS,
+    payload: students
+})
 
+export const getStudents = (batchId) => (dispatch, getState) => {
+    const state = getState()
     request
-        .get(`${baseUrl}/students/${batchId}`)
-        .then(result => dispatch({
-                type: GET_STUDENTS,
-                payload: result.body.students
-            }))
+        .get(`${baseUrl}/batches/${batchId}`)
+        .then(result => dispatch(fetchStudents(result.body.students)))
         .catch(err => console.error(err))
 }
+
 
 const newStudent = student => ({
     type: ADD_STUDENT,
     payload: student
 })
 
-
-export const addStudent = (student) => (dispatch, getState) => {
+export const addStudent = (student) => (dispatch) => {
     console.log(student)
     //const state = getState()
+    //add getState to dispatch if needed
     //should be posted to the specific batch page? 
     request
-        .post(`${baseUrl}/batches/`)
+        .post(`${baseUrl}/students/`)
         .send(student)
         .then(result => dispatch(newStudent(student)))
         .catch(err => console.error(err))
 }
 
 
-export const getStudent = (id) => (dispatch) => {
+export const getStudent = (userId) => (dispatch) => {
     
     request
-        .get(`${baseUrl}/students/`)
+        .get(`${baseUrl}/students/${userId}`)
         .then(result => {
             dispatch({
                 type: GET_STUDENT,
@@ -94,9 +100,9 @@ export const getStudent = (id) => (dispatch) => {
         .catch(err => console.error(err))
 }
 
-export const deleteStudent = (id) => (dispatch) => {
+export const deleteStudent = (userId) => (dispatch) => {
     request
-        .delete(`${baseUrl}/students/${id}`)
+        .delete(`${baseUrl}/students/${userId}`)
         .then(result => {
             dispatch({
                 type: DELETE_STUDENT,

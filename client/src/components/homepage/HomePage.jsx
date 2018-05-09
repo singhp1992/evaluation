@@ -12,14 +12,14 @@ class HomePage extends PureComponent {
         }
 
     render() {
-        const { batches } = this.props
+        const {batches}= this.props
         return (
-            <Paper className="outer-paper">
+            <Paper className="outer-paper" >
                 <h1>Home Page</h1>
                 <NewBatch />
-                {batches.map(batch =>
-                    <div className="batch">
-                        <Link to={`/batches/${batch.id}`}><h2> {batch.id} </h2></Link>
+                {batches.map((batch, index) =>
+                    <div className="batch" key={index}>
+                        <Link to={`/batches/${batch.batchNumber}`}><h2> Batch #{batch.batchNumber} Start Date: {batch.startDate} End Date: {batch.endDate} </h2></Link>
                     </div>
                 )}
             </Paper>

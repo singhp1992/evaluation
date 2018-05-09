@@ -45,7 +45,7 @@ export const login = (email, password) => (dispatch) =>
 export const signup = (email, password) => (dispatch) =>
     request
         .post(`${baseUrl}/users`)
-        .send({ email, password })
+        .send({ firstName: email, lastName: email, email, password })
         .then(result => {
             dispatch({
                 type: USER_SIGNUP_SUCCESS

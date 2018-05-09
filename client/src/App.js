@@ -7,6 +7,7 @@ import LogOutPage from './components/logout/logOutPage'
 import TopBar from './components/layout/topBar'
 import HomePage from './components/homepage/HomePage'
 import BatchPage from './components/batchpage/BatchPage'
+import StudentView from './components/studentpage/StudentPage'
 
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/batches" component={HomePage} />
             <Route exact path="/batches/:id" component={BatchPage} />
-            {/* <Route exact path="/batches/:id/:name" component={StudentView} /> */}
+            <Route exact path="/students/name" component={StudentView} />
             <Route exact path="/" render={() => <Redirect to="/login" />} />
 
           </main>
