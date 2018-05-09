@@ -1,7 +1,6 @@
 import * as request from 'superagent'
-import {isExpired} from '../jwt'
-import { logout } from './users'
-
+//import {isExpired} from '../jwt'
+//import { logout } from './users'
 
 const baseUrl = 'http://localhost:4000'
 
@@ -21,7 +20,7 @@ const newBatch = batch => ({
 
 
 export const getBatches = () => (dispatch, getState) => {
-    const state = getState()
+    //const state = getState()
     request
         .get(`${baseUrl}/batches`)
         .then(result => dispatch({
@@ -42,19 +41,6 @@ export const getBatch = (id) => (dispatch) => {
         })
         .catch(err => console.error(err))
 }
-
-// export const addBatch = (batch) => (dispatch, getState) => {
-//     request
-//         .post(`${baseUrl}/batches`)
-//         .send(batch)
-//         .then(result => {
-//             dispatch({
-//                 type: ADD_BATCH,
-//                 payload: result.body
-//             })
-//         })
-//         .catch(err => console.error(err))
-// }
 
 export const addBatch = (batch) => (dispatch, getState) => {
     const state = getState()
@@ -79,20 +65,23 @@ export const getStudents = (batchId) => (dispatch) => {
         .catch(err => console.error(err))
 }
 
-export const addStudent = (student) => (dispatch) => {
-    console.log(student)
+const newStudent = student => ({
+    type: ADD_STUDENT,
+    payload: student
+})
 
+
+export const addStudent = (student) => (dispatch, getState) => {
+    console.log(student)
+    const state = getState()
+    
     request
-        .post(`${baseUrl}/students`)
+        .post(`${baseUrl}/batches`)
         .send(student)
-        .then(result => {
-            dispatch({
-                type: ADD_STUDENT,
-                payload: result.body
-            })
-        })
+        .then(result => dispatch(newStudent(student)))
         .catch(err => console.error(err))
 }
+
 
 export const getStudent = (id) => (dispatch) => {
     request
