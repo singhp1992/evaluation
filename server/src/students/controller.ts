@@ -5,18 +5,32 @@ import Student from './entity'
 export default class StudentController {
     // requests all students
     @Get('/students')
-    allStudents() {
+    getStudents() {
         return Student.find()
     }
 
     // requests one student
-    //NEED TO REQUEST BY BATCH NUMBER
-    @Get('/students/:id')
-    async student(
+    @Get('/students/:id([0-9]+')
+    async getStudentById(
         @Param('id') id: number
     ) {
         const student = await Student.findOne(id)
-        return { student }
+
+        if (!student) throw new NotFoundError('No student found.')
+
+        return student
+    }
+
+    //get student by batch number
+    @Get('/students/:id([0-9]+')
+    async getStudentByBatchNumber(
+        @Param('id') batchNumber: string
+    ) {
+        const student = await Student.findOne(batchNumber)
+
+        if (!student) throw new NotFoundError('No students in this batch.')
+
+        return student
     }
 
     // creates a student
@@ -25,7 +39,8 @@ export default class StudentController {
         @Body() student: Student
     ) {
         const entity = await student.save()
-        return { entity }
+
+        return entity
     }
 
     // edits a student
@@ -63,15 +78,4 @@ export default class StudentController {
     //     return batchStudents
     // }
 
-    //abbas
-    // @Get('/students/:id([0-9]+)')
-    // async getStudentById(
-    //     @Param('id') studentId: number
-    // ) {
-    //     const studentById = await Student.findOneById(studentId)
-    //     if (!studentById) throw new NotFoundError('Student doesn\'t exist')
-    //     if (studentById) {
-    //         return { studentById }
-    //     }
-    // }
 } 

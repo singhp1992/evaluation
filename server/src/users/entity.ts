@@ -1,9 +1,10 @@
 
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
-import { BaseEntity } from 'typeorm/repository/BaseEntity'
-import { Exclude } from "class-transformer";
-import { IsEmail, IsString } from 'class-validator'
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import { Exclude } from 'class-transformer';
+import { MinLength, IsString, IsEmail } from 'class-validator';
 import * as bcrypt from 'bcrypt'
+import Evaluation from '../evaluations/entity';
+
 
 @Entity()
 export default class User extends BaseEntity {
@@ -12,19 +13,22 @@ export default class User extends BaseEntity {
     id?: number
 
     @IsString()
-    @Column('text', { default: null })
+    @MinLength(2)
+    @Column('text')
     firstName: string
 
     @IsString()
-    @Column('text', { default: null })
+    @MinLength(2)
+    @Column('text')
     lastName: string
 
     @IsEmail()
-    @Column('text', { nullable: false })
+    @Column('text')
     email: string
 
     @IsString()
-    @Column('text', { nullable: false })
+    @MinLength(8)
+    @Column('text')
     @Exclude({ toPlainOnly: true })
     password: string
 
