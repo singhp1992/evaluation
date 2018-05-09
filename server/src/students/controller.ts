@@ -3,7 +3,7 @@ import Student from './entity'
 
 @JsonController()
 export default class StudentController {
-    // requests all students
+    //requests all students
     @Get('/students')
     getStudents() {
         return Student.find()
@@ -68,14 +68,6 @@ export default class StudentController {
         return 'successfully deleted'
     }
 
-    //should request student by batchNumber
-    // @Get('/batchStudents/:id([0-9]+)')
-    // getbatchStudents(
-    //     @Param('id') batchRequestId: number
-    // ) {
-    //     console.log('youve made it here')
-    //     let batchStudents = Student.find({ batch: batchRequestId })
-    //     return batchStudents
-    // }
+
 
 } 

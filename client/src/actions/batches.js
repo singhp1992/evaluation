@@ -60,10 +60,11 @@ const fetchStudents = students => ({
     payload: students
 })
 
-export const getStudents = (batchId) => (dispatch, getState) => {
+export const getStudents = (batchNumber) => (dispatch, getState) => {
     const state = getState()
+    console.log('action')
     request
-        .get(`${baseUrl}/batches/${batchId}`)
+        .get(`${baseUrl}/batches/${batchNumber}`)
         .then(result => dispatch(fetchStudents(result.body.students)))
         .catch(err => console.error(err))
 }
