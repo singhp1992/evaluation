@@ -31,6 +31,7 @@ export default class UserController {
         await entity.setPassword(password)
         return entity.save()
     }
+    
     // edits a user
     @Put('/users/:id')
     // @HttpCode(200)

@@ -25,7 +25,7 @@ class BatchPage extends PureComponent {
                 <NewStudent />
                 {students.map(student =>
                     <div className="student">
-                        <Link to={`/students/${student.id}`}><h2>{student.name}</h2></Link>
+                        <Link to={`/students/${student.id}`}><h2>{student.firstName}</h2></Link>
                     </div>
                 )}
             </Paper>

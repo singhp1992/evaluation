@@ -10,6 +10,7 @@ export default class StudentController {
     }
 
     // requests one student
+    //NEED TO REQUEST BY BATCH NUMBER
     @Get('/students/:id')
     async student(
         @Param('id') id: number
@@ -51,4 +52,26 @@ export default class StudentController {
         if (student) Student.delete(id)
         return 'successfully deleted'
     }
+
+    //should request student by batchNumber
+    // @Get('/batchStudents/:id([0-9]+)')
+    // getbatchStudents(
+    //     @Param('id') batchRequestId: number
+    // ) {
+    //     console.log('youve made it here')
+    //     let batchStudents = Student.find({ batch: batchRequestId })
+    //     return batchStudents
+    // }
+
+    //abbas
+    // @Get('/students/:id([0-9]+)')
+    // async getStudentById(
+    //     @Param('id') studentId: number
+    // ) {
+    //     const studentById = await Student.findOneById(studentId)
+    //     if (!studentById) throw new NotFoundError('Student doesn\'t exist')
+    //     if (studentById) {
+    //         return { studentById }
+    //     }
+    // }
 } 

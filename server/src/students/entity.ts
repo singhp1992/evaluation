@@ -1,5 +1,5 @@
-import { BaseEntity, PrimaryGeneratedColumn, Column, Entity } from 'typeorm'
-
+import { BaseEntity, PrimaryGeneratedColumn, Column, Entity, ManyToOne } from 'typeorm'
+import  Batch from '../batches/entity'
 
 @Entity()
 export default class Student extends BaseEntity {
@@ -7,10 +7,9 @@ export default class Student extends BaseEntity {
     @PrimaryGeneratedColumn()
     id?: number
 
-    @Column('text', { nullable: false })
-    batchNumber: number
-    //should this be a foreign key? 
-
+    @ManyToOne(_ => Batch, batch => batch.students)
+    batch: Batch
+    
     //@IsDate()
     @Column('text', { nullable: false })
     firstName: string
@@ -19,7 +18,7 @@ export default class Student extends BaseEntity {
     @Column('text', { nullable: false })
     lastName: string
 
-    @Column('text', { nullable: false })
+    @Column('text', { nullable: true })
     profilePic: string 
 
     @Column('text', { nullable: true })

@@ -20,7 +20,7 @@ const newBatch = batch => ({
 
 
 export const getBatches = () => (dispatch, getState) => {
-    //const state = getState()
+    const state = getState()
     request
         .get(`${baseUrl}/batches`)
         .then(result => dispatch({
@@ -44,12 +44,10 @@ export const getBatch = (id) => (dispatch) => {
 
 export const addBatch = (batch) => (dispatch, getState) => {
     const state = getState()
-    const jwt = state.currentUser.jwt
 
     request
         .post(`${baseUrl}/batches`)
         .send(batch)
-        .set('Authorization', `Bearer ${jwt}`)
         .then(result => dispatch(newBatch(batch)))
         .catch(err => console.error(err))
 }
@@ -73,10 +71,10 @@ const newStudent = student => ({
 
 export const addStudent = (student) => (dispatch, getState) => {
     console.log(student)
-    const state = getState()
-    
+    //const state = getState()
+    //should be posted to the specific batch page? 
     request
-        .post(`${baseUrl}/batches`)
+        .post(`${baseUrl}/batches/`)
         .send(student)
         .then(result => dispatch(newStudent(student)))
         .catch(err => console.error(err))
@@ -84,8 +82,9 @@ export const addStudent = (student) => (dispatch, getState) => {
 
 
 export const getStudent = (id) => (dispatch) => {
+    
     request
-        .get(`${baseUrl}/students/${id}`)
+        .get(`${baseUrl}/students/`)
         .then(result => {
             dispatch({
                 type: GET_STUDENT,

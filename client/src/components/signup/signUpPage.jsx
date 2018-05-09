@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { signup } from '../../actions/users'
 import SignUpForm from './signUpForm'
-import { Redirect } from 'react-router-dom'
+//import { Redirect } from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 import '../components.css'
 

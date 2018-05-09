@@ -19,7 +19,7 @@ class HomePage extends PureComponent {
                 <NewBatch />
                 {batches.map(batch =>
                     <div className="batch">
-                        <Link to={`/batches/${batch.batchNumber}`}><h2> {batch.batchNumber} </h2></Link>
+                        <Link to={`/batches/${batch.id}`}><h2> {batch.id} </h2></Link>
                     </div>
                 )}
             </Paper>
