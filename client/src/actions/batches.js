@@ -74,7 +74,7 @@ export const getStudents = (batchId) => (dispatch) => {
         .get(`${baseUrl}/students/${batchId}`)
         .then(result => dispatch({
                 type: GET_STUDENTS,
-                payload: result.body
+                payload: result.body.students
             }))
         .catch(err => console.error(err))
 }
