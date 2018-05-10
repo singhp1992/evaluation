@@ -29,17 +29,31 @@ class NewStudent extends PureComponent {
         return (
             <form onSubmit={this.handleSubmit}>
                 <TextField
+                    id='batch'
+                    name='batchNumber'
+                    label='Batch Number'
+                    value={this.state.batchNumber || ''}
+                    onChange={this.handleChange}
+                />
+                <TextField
                     id='name'
-                    name='name'
-                    label='Student Name'
-                    value={this.state.name || ''}
+                    name='firstName'
+                    label='First Name'
+                    value={this.state.firstName || ''}
+                    onChange={this.handleChange}
+                />
+                <TextField
+                    id='name'
+                    name='lastName'
+                    label='Last Name'
+                    value={this.state.lastName || ''}
                     onChange={this.handleChange}
                 />
                 <TextField
                     id='picture'
-                    name='picture'
+                    name='profilePic'
                     label='Add a picture'
-                    value={this.state.picture || ''}
+                    value={this.state.profilePic || ''}
                     onChange={this.handleChange}
                 />
                 <Button

@@ -1,40 +1,45 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { getStudents, getBatch } from '../../actions/batches'
+import { addStudent, deleteStudent, getStudents, getBatch } from '../../actions/batches'
 import { Link } from 'react-router-dom'
 import NewStudent from './NewStudent'
+import AskQuestion from './Question'
 import Paper from 'material-ui/Paper'
 
 class BatchPage extends PureComponent {
 
     componentWillMount() {
         this.props.getBatch(this.props.match.params.id)
-        this.props.getStudents(this.props.match.params.id)
+        this.props.getStudents(this.props.match.params.d)
     }
 
     render() {
-        //const { batch, students } = this.props
-        const batch = this.props
-        const students = this.props.students
-        //console.log(students.studentId)
+        const { batch, students } = this.props
+        //const students = this.props.students
 
         return (
             <Paper className="outer-paper">
-                <h1>Batch {batch.id}</h1>
+                <h1>Batch</h1>
                 <NewStudent />
-                {/* {students.map(student =>
-                    <div className="student">
-                        <Link to={`/students/${student.id}`}><h2>{student.name}</h2></Link>
+                {students.map((student, index) =>
+                    <div className="student" key={index}>
+                        <Link to={`/students/${student.batchNumber}`}><h2>Full Name: {student.firstName} {student.lastName} </h2></Link>
                     </div>
-                )} */}
+                )}
+                <br />
+                <br />
+                <AskQuestion />
             </Paper>
         )
     }
 }
 
+
 const mapStateToProps = (state) => ({
-    batch: state.batch,
-    students: state.students
+    students: state.students,
+    batch: state.batch
 })
 
-export default connect(mapStateToProps, { getStudents, getBatch })(BatchPage)
+export default connect(mapStateToProps, { getStudents, getBatch, addStudent, deleteStudent })(BatchPage)
+
+//this should work

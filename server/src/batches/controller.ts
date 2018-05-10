@@ -8,13 +8,14 @@ export default class BatchController {
     allBatches() {
         return Batch.find()
     }
+    
     // requests one batch
     @Get('/batches/:id')
     async batch(
         @Param('id') id: number
     ) {
         const batch = await Batch.findOne(id)
-        return { batch }
+        return batch
     }
 
     // creates a batch
@@ -24,11 +25,10 @@ export default class BatchController {
     ) {
         const entity = await batch.save()
 
-        return { entity }
+        return entity
     }
     // edits a batch
     @Put('/batches/:id')
-    // @HttpCode(200)
     async editBatch(
         @Param('id') id: number,
         @Body() update: Partial<Batch>
