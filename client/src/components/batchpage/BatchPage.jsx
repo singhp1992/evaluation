@@ -9,8 +9,8 @@ import Paper from 'material-ui/Paper'
 class BatchPage extends PureComponent {
 
     componentWillMount() {
-        this.props.getBatch(this.props.match.params.batch)
-        this.props.getStudents(this.props.match.params.id)
+        this.props.getBatch(this.props.match.params.id)
+        this.props.getStudents(this.props.match.params.BatchId)
     }
 
     render() {
@@ -36,8 +36,8 @@ class BatchPage extends PureComponent {
 
 
 const mapStateToProps = (state) => ({
-    batch: state.batch,
-    students: state.students
+    students: state.students,
+    batch: state.batch
 })
 
 export default connect(mapStateToProps, { getStudents, getBatch, addStudent, deleteStudent })(BatchPage)

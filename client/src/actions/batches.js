@@ -48,7 +48,6 @@ const newBatch = batch => ({
 
 export const addBatch = (batch) => (dispatch, getState) => {
     //const state = getState()
-
     request
         .post(`${baseUrl}/batches/`)
         .send(batch)
@@ -56,17 +55,17 @@ export const addBatch = (batch) => (dispatch, getState) => {
         .catch(err => console.error(err))
 }
 
-const fetchStudents = students => ({
-    type: GET_STUDENTS,
-    payload: students
-})
-
-export const getStudents = (batchNumber) => (dispatch, getState) => {
-    //const state = getState()
+export const getStudents = () => (dispatch, getState) => {
+    const state = getState()
     console.log('action')
     request
-        .get(`${baseUrl}/batches/${batchNumber}`)
-        .then(result => dispatch(fetchStudents(result.body.students)))
+        .get(`${baseUrl}/students`)
+        .then(result => {
+            dispatch({
+                type: GET_STUDENTS,
+                payload: result.body
+            })
+        })
         .catch(err => console.error(err))
 }
 

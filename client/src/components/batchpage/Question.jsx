@@ -27,7 +27,6 @@ class AskQuestion extends PureComponent {
             {
                 color: "red",
                 chance: 0.53
-                //percent chance they'll 'win'
             },
             {
                 color: "yellow",
