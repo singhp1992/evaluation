@@ -69,6 +69,20 @@ export const getStudents = () => (dispatch, getState) => {
         .catch(err => console.error(err))
 }
 
+//not sure how to use this
+export const getStudentsByBatchNumber = () => (dispatch, getState) => {
+    const state = getState()
+    console.log('students by batchNumber')
+    request
+        .get(`${baseUrl}/students`)
+        .then(result => {
+            dispatch({
+                type: GET_STUDENTS,
+                payload: result.body
+            })
+        })
+        .catch(err => console.error(err))
+}
 
 const newStudent = student => ({
     type: ADD_STUDENT,

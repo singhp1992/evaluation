@@ -26,8 +26,6 @@ class BatchPage extends PureComponent {
                         <Link to={`/students/${student.batchNumber}`}><h2>Full Name: {student.firstName} {student.lastName} </h2></Link>
                     </div>
                 )}
-                <br />
-                <br />
                 <AskQuestion />
             </Paper>
         )
