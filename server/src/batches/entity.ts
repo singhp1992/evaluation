@@ -1,7 +1,4 @@
-import { BaseEntity, PrimaryGeneratedColumn, Column, Entity, OneToMany } from 'typeorm'
-//import { IsDate } from 'class-validator'
-//import Student from '../students/entity'
-
+import { BaseEntity, PrimaryGeneratedColumn, Column, Entity } from 'typeorm'
 
 @Entity()
 export default class Batch extends BaseEntity {
@@ -19,8 +16,5 @@ export default class Batch extends BaseEntity {
     //@IsDate()
     @Column('text', { nullable: true })
     endDate: string
-
-    // @OneToMany(_ => Student, student => student.batch)
-    // students: Student[]
 
 }
