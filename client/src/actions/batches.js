@@ -115,9 +115,9 @@ export const getStudent = (userId) => (dispatch) => {
         .catch(err => console.error(err))
 }
 
-export const deleteStudent = (userId) => (dispatch) => {
+export const deleteStudent = (studentId) => (dispatch) => {
     request
-        .delete(`${baseUrl}/students/${userId}`)
+        .delete(`${baseUrl}/students/${studentId}`)
         .then(result => {
             dispatch({
                 type: DELETE_STUDENT,
@@ -145,3 +145,4 @@ export const askQuestion = (question) => (dispatch) => {
         .then(result => dispatch(newQuestion(question)))
         .catch(err => console.error(err))
 }
+
