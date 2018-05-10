@@ -31,7 +31,7 @@ export const addEvaluation = (id, evaluation) => (dispatch, getState) => {
 //         .catch(err => console.error(err))
 // }
 
-export const getEvaluations = (id) => (dispatch) => {
+export const getEvaluation = (id) => (dispatch) => {
     request
         .get(`${baseUrl}/evaluations/${id}`)
         .then(result => {

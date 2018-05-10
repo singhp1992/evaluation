@@ -40,7 +40,7 @@ class BatchPage extends PureComponent {
                 {students.map((student, index) =>
                     <div className="student" key={index}>
                         <Link to={`/students/${student.id}`}>
-                            <img src={student.profilePic} height="150" width="175" />
+                            <img src={student.profilePic} height="150" width="200" />
                             <h2> {student.firstName} {student.lastName} <br /> Last Evaluation: {student.lastEvaluation}</h2>
                         </Link>
                         <Button type='submit'

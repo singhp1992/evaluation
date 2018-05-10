@@ -24,7 +24,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/batches" component={HomePage} />
             <Route exact path="/batches/:id" component={BatchPage} />
-            <Route exact path="/students/name" component={StudentView} />
+            <Route exact path="/students/:id" component={StudentView} />
             <Route exact path="/" render={() => <Redirect to="/login" />} />
           </main>
         </div>
