@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import NewBatch from './NewBatch'
 import Paper from 'material-ui/Paper'
 
+
 class HomePage extends PureComponent {
 
     componentWillMount() {

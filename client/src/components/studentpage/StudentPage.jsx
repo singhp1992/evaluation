@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 //need to add student by id - you have an endpoint 
-import { getEvaluations } from '../../actions/evaluations'
+import { getEvaluation } from '../../actions/evaluations'
 import { getStudent } from '../../actions/batches'
 import { Link } from 'react-router-dom'
 import NewEvaluation from './NewEvaluation'
@@ -11,7 +11,7 @@ class StudentView extends PureComponent {
 
     componentWillMount() {
         this.props.getStudent()
-        this.props.getEvaluation()
+        this.props.getEvaluation(this.props.id)
     }
 
     render() {
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => ({
     students: state.students
 })
 
-export default connect(mapStateToProps, { getStudent, getEvaluations })(StudentView)
+export default connect(mapStateToProps, { getStudent, getEvaluation })(StudentView)
