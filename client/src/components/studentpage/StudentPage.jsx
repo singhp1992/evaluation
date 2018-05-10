@@ -1,39 +1,39 @@
-// import React, { PureComponent } from 'react'
-// import { connect } from 'react-redux'
-// //import { addStudent, deleteStudent, getStudents, getBatch } from '../../actions/batches'
-// import { Link } from 'react-router-dom'
-// //import NewStudent from './NewStudent'
-// import Paper from 'material-ui/Paper'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+//need to add student by id - you have an endpoint 
+import { getEvaluations } from '../../actions/evaluations'
+import { getStudent } from '../../actions/batches'
+import { Link } from 'react-router-dom'
+import NewEvaluation from './NewEvaluation'
+import Paper from 'material-ui/Paper'
 
-// class StudentView extends PureComponent {
+class StudentView extends PureComponent {
 
-//     componentWillMount() {
-//         this.props.getBatch(this.props.match.params.batch)
-//         this.props.getStudents(this.props.match.params.id)
-//     }
+    componentWillMount() {
+        this.props.getStudent()
+        this.props.getEvaluation()
+    }
 
-//     render() {
-//         const { batch, batches, students } = this.props
-//         //const students = this.props.students
-
-//         return (
-//             <Paper className="outer-paper">
-//                 <h1>Batch</h1>
-//                 <NewStudent />
-//                 {students.map((student, index) =>
-//                     <div className="student" key={index}>
-//                         <Link to={`/students/${student.batchNumber}`}><h2>First Name: {student.firstName}</h2></Link>
-//                     </div>
-//                 )}
-//             </Paper>
-//         )
-//     }
-// }
+    render() {
+        const { evaluation, student } = this.props
+        return (
+            <Paper className="outer-paper">
+                <h1>Student</h1>
+                <NewEvaluation />
+                {evaluation.map((evaluation, index) =>
+                    <div className="evaluation" key={index}>
+                        <Link to={`/students/${student.lastEvaluation}`}><h2>First Name: {student.lastEvaluation}</h2></Link>
+                    </div>
+                )}
+            </Paper>
+        )
+    }
+}
 
 
-// const mapStateToProps = (state) => ({
-//     batch: state.batch,
-//     students: state.students
-// })
+const mapStateToProps = (state) => ({
+    batch: state.batch,
+    students: state.students
+})
 
-// export default connect(mapStateToProps, { getStudents, getBatch, addStudent, deleteStudent })(StudentView)
+export default connect(mapStateToProps, { getStudent, getEvaluations })(StudentView)

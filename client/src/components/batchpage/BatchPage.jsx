@@ -21,9 +21,14 @@ class BatchPage extends PureComponent {
             <Paper className="outer-paper">
                 <h1>Batch</h1>
                 <NewStudent />
+                <br />
                 {students.map((student, index) =>
                     <div className="student" key={index}>
-                        <Link to={`/students/${student.batchNumber}`}><h2>Full Name: {student.firstName} {student.lastName} </h2></Link>
+                        <Link to={`/students/${student.id}`}>
+                            <img src={student.profilePic} height="100" width="100" />
+                            <h2> {student.firstName} {student.lastName} Last Evaluation: {student.lastEvaluation}</h2>
+
+                        </Link>
                     </div>
                 )}
                 <AskQuestion />

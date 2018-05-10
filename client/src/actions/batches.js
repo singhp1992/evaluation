@@ -145,3 +145,4 @@ export const askQuestion = (question) => (dispatch) => {
         .then(result => dispatch(newQuestion(question)))
         .catch(err => console.error(err))
 }
+
