@@ -1,40 +1,46 @@
-const prizes = [
+// const functions = {
+//     add: (num1, num2) => num1 + num2 
+// }
+
+const colors = [
     {
-        prize:"nothing!",
-        chance: 0.5
+        person: "Student 1",
+        color: "red",
+        chance: 0.53
     },
     {
-        prize: "a gold piece!",
-        chance: 0.25
+        person: "Student 2",
+        color: "yellow",
+        chance: 0.28
     },
     {
-        prize: "a treasure chest!",
-        chance: 0.07
-    },
-    {
-        prize: "poison!",
-        chance: 0.08
-    },
-    {
-        prize: "food!",
-        chance: 0.5
+        person: "Student 3",
+        color: "green",
+        chance: 0.19
     }
 ];
 
-document.body.addEventListener("click", function(){
-    const rand = Math.random(),
-        prize = getPrize(rand);
-    
-    console.log(rand);
-    console.log("You won " + prize);
-})
-
-function getPrize(rand) {
-    for(const i= 0; i < prizes.length; i++) {
-        const prize = prizes[i];
-        if(rand < prize.chance) {
-            return prize.prize;
+        function getColor(random) {
+            for (var i = 0; i < colors.length; i++) {
+                var color = colors[i];
+                if (random < color.chance) {
+                    return color.color;
+                }
+                random -= color.chance;
+            }
         }
-        rand -= prize.chance;
-    }
-}
+
+        function randomizer() {
+            const random = Math.random(),
+                color = getColor(random);
+
+            console.log(random);
+            console.log("pick a " + color + " student!");
+        }
+
+module.exports = getColor, randomizer
+
+
+
+
+
