@@ -3,11 +3,30 @@ import { connect } from 'react-redux'
 import Button from 'material-ui/Button';
 import { askQuestion } from '../../actions/batches'
 
+const colors = [
+    {
+        person:"Student 1",
+        color: "red",
+        chance: 0.53
+    },
+    {
+        person:"Student 2",
+        color: "yellow",
+        chance: 0.28
+    },
+    {
+        person:"Student 3",
+        color: "green",
+        chance: 0.19
+    }
+];
+
+
 class AskQuestion extends PureComponent {
 
     state = {}
 
-    handleSubmit = (e) => {
+    handleClick = (e) => {
         e.preventDefault()
         this.props.askQuestion(this.state)
     }
@@ -23,28 +42,6 @@ class AskQuestion extends PureComponent {
     };
 
     render() {
-        const colors = [
-            {
-                color: "red",
-                chance: 0.53
-            },
-            {
-                color: "yellow",
-                chance: 0.28
-            },
-            {
-                color: "green",
-                chance: 0.19
-            }
-        ];
-
-        document.body.addEventListener("click", function () {
-            const random = Math.random(),
-                color = getColor(random);
-
-            console.log(random);
-            console.log(color + " student picked");
-        })
 
         function getColor(random) {
             for (var i = 0; i < colors.length; i++) {
@@ -56,8 +53,16 @@ class AskQuestion extends PureComponent {
             }
         }
 
+        document.body.addEventListener("click", () => {
+            const random = Math.random(),
+                color = getColor(random);
+
+            console.log(random);
+            console.log("pick a " + color + " student!");
+        })
+
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onClick={this.handleClick}>
                 <Button
                     type='submit'
                     color="secondary"
