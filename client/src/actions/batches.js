@@ -7,6 +7,7 @@ const baseUrl = 'http://localhost:4000'
 export const GET_BATCHES = 'GET_BATCHES'
 export const GET_BATCH = 'GET_BATCHES'
 export const ADD_BATCH = 'ADD_BATCH'
+export const ASK_QUESTION = 'ASK_QUESTION'
 
 export const GET_STUDENTS = 'GET_STUDENTS'
 export const GET_STUDENT = 'GET_STUDENT'
@@ -21,7 +22,7 @@ const fetchBatches = batches => ({
 
 
 export const getBatches = () => (dispatch, getState) => {
-    const state = getState()
+    //const state = getState()
     request
         .get(`${baseUrl}/batches`)
         .then(result => dispatch(fetchBatches(result.body)))
@@ -46,7 +47,7 @@ const newBatch = batch => ({
 })
 
 export const addBatch = (batch) => (dispatch, getState) => {
-    const state = getState()
+    //const state = getState()
 
     request
         .post(`${baseUrl}/batches/`)
@@ -61,7 +62,7 @@ const fetchStudents = students => ({
 })
 
 export const getStudents = (batchNumber) => (dispatch, getState) => {
-    const state = getState()
+    //const state = getState()
     console.log('action')
     request
         .get(`${baseUrl}/batches/${batchNumber}`)
@@ -110,5 +111,24 @@ export const deleteStudent = (userId) => (dispatch) => {
                 payload: result.body
             })
         })
+        .catch(err => console.error(err))
+}
+
+//needs to be manipulated
+const newQuestion = question => ({
+    type: ASK_QUESTION,
+    payload: question
+})
+
+//not sure where the question parameter is coming from
+export const askQuestion = (question) => (dispatch) => {
+    console.log(question)
+    //const state = getState()
+    //add getState to dispatch if needed
+    //should be posted to the specific batch page? 
+    request
+        .post(`${baseUrl}/students/`)
+        .send(question)
+        .then(result => dispatch(newQuestion(question)))
         .catch(err => console.error(err))
 }

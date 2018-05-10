@@ -11,6 +11,7 @@ class HomePage extends PureComponent {
         this.props.getBatches()
         }
 
+
     render() {
         const {batches}= this.props
         return (

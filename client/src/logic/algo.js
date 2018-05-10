@@ -1,44 +1,40 @@
-
-window.onload = function() {
-    var canvas = document.getElementById("canvas"),
-    context = canvas.getContext("2d"),
-    width = canvas.width = window.innerWidth,
-    height = canvas.height = window.innerHeight;
-
-const colors = [
+const prizes = [
     {
-        color:"red!",
-        chance:0.53
-    }, 
+        prize:"nothing!",
+        chance: 0.5
+    },
     {
-        color: "yellow",
-        chance: 0.28
-    }, 
+        prize: "a gold piece!",
+        chance: 0.25
+    },
     {
-        color: "green",
-        chance: 0.19
+        prize: "a treasure chest!",
+        chance: 0.07
+    },
+    {
+        prize: "poison!",
+        chance: 0.08
+    },
+    {
+        prize: "food!",
+        chance: 0.5
     }
 ];
 
-const red = 0.53,
-const yellow = 0.28,
-const green = 0.19;
-
-document.body.addEventListener("click", function() {
+document.body.addEventListener("click", function(){
     const rand = Math.random(),
-        color = getColor(rand);
-
+        prize = getPrize(rand);
+    
     console.log(rand);
-    console.log("you picked " + colors)
-});
+    console.log("You won " + prize);
+})
 
-function getColor(rand) {
-    for(var i=0; i < colors.length; i++) {
-        var color = colors[i];
-        if(rand < colors.chance) {
-            return color.color;
+function getPrize(rand) {
+    for(const i= 0; i < prizes.length; i++) {
+        const prize = prizes[i];
+        if(rand < prize.chance) {
+            return prize.prize;
         }
-        rand -= color.chance;
+        rand -= prize.chance;
     }
-  }
 }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { addStudent, deleteStudent, getStudents, getBatch } from '../../actions/batches'
 import { Link } from 'react-router-dom'
 import NewStudent from './NewStudent'
+import AskQuestion from './Question'
 import Paper from 'material-ui/Paper'
 
 class BatchPage extends PureComponent {
@@ -13,7 +14,7 @@ class BatchPage extends PureComponent {
     }
 
     render() {
-        const { batch, batches, students } = this.props
+        const { batch, students } = this.props
         //const students = this.props.students
 
         return (
@@ -25,6 +26,9 @@ class BatchPage extends PureComponent {
                         <Link to={`/students/${student.batchNumber}`}><h2>Full Name: {student.firstName} {student.lastName} </h2></Link>
                     </div>
                 )}
+                <br />
+                <br />
+                <AskQuestion />
             </Paper>
         )
     }
