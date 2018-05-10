@@ -45,7 +45,6 @@ export default class StudentController {
 
     // edits a student
     @Put('/students/:id')
-    // @HttpCode(200)
     async editStudent(
         @Param('id') id: number,
         @Body() update: Partial<Student>

@@ -29,7 +29,6 @@ export default class BatchController {
     }
     // edits a batch
     @Put('/batches/:id')
-    // @HttpCode(200)
     async editBatch(
         @Param('id') id: number,
         @Body() update: Partial<Batch>
