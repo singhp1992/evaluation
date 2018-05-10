@@ -1,7 +1,3 @@
-// const functions = {
-//     add: (num1, num2) => num1 + num2 
-// }
-
 const colors = [
     {
         person: "Student 1",
@@ -20,25 +16,24 @@ const colors = [
     }
 ];
 
-        function getColor(random) {
-            for (var i = 0; i < colors.length; i++) {
-                var color = colors[i];
-                if (random < color.chance) {
-                    return color.color;
-                }
-                random -= color.chance;
-            }
+function getColor(random) {
+    for (var i = 0; i < colors.length; i++) {
+        var color = colors[i];
+        if (random < color.chance) {
+            return color.color;
         }
+        random -= color.chance;
+    }
+}
 
-        function randomizer() {
-            const random = Math.random(),
-                color = getColor(random);
+function randomizer() {
+    const random = Math.random(),
+        color = getColor(random);
 
-            console.log(random);
-            console.log("pick a " + color + " student!");
-        }
+    console.log(random);
+    console.log("pick a " + color + " student!");
+}
 
-module.exports = getColor, randomizer
 
 
 
