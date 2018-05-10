@@ -10,7 +10,7 @@ class BatchPage extends PureComponent {
 
     componentWillMount() {
         this.props.getBatch(this.props.match.params.id)
-        this.props.getStudents(this.props.match.params.BatchId)
+        this.props.getStudents(this.props.match.params.d)
     }
 
     render() {
@@ -41,3 +41,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { getStudents, getBatch, addStudent, deleteStudent })(BatchPage)
+
+//this should work

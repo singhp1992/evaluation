@@ -34,7 +34,7 @@ export default class EvaluationController {
     ) {
         let studentEvaluations = await Evaluation.findOne(id)
 
-        return { studentEvaluations }
+        return studentEvaluations
     }
     //ALTERNATIVE
     // @Get('/studentevaluations/:id([0-9]+)')

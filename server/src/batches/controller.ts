@@ -15,7 +15,7 @@ export default class BatchController {
         @Param('id') id: number
     ) {
         const batch = await Batch.findOne(id)
-        return { batch }
+        return batch
     }
 
     // creates a batch
@@ -25,7 +25,7 @@ export default class BatchController {
     ) {
         const entity = await batch.save()
 
-        return { entity }
+        return entity
     }
     // edits a batch
     @Put('/batches/:id')
