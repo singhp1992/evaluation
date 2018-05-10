@@ -10,25 +10,17 @@ class HomePage extends PureComponent {
     componentWillMount() {
         this.props.getBatches()
         }
-    //this.props.match.params.id
-    // sendResponse = (response) => {
-    //     this.props.sendResponse(response)
-    // }
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     this.sendResponse(response)
-    // }
+
     render() {
-        const { batches } = this.props
+        const {batches}= this.props
         return (
-            <Paper className="outer-paper">
+            <Paper className="outer-paper" >
                 <h1>Home Page</h1>
                 <NewBatch />
-                {batches.map(batch =>
-                    <div className="batch">
-                        <Link to={`/batches/${batch.batchNumber}`}><h2> {batch.batchNumber} </h2></Link>
-                       {/* {batch.batchNum} */}
+                {batches.map((batch, index) =>
+                    <div className="batch" key={index}>
+                        <Link to={`/batches/${batch.batchNumber}`}><h2> Batch #{batch.batchNumber} Start Date: {batch.startDate} End Date: {batch.endDate} </h2></Link>
                     </div>
                 )}
             </Paper>

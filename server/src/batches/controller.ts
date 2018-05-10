@@ -8,6 +8,7 @@ export default class BatchController {
     allBatches() {
         return Batch.find()
     }
+    
     // requests one batch
     @Get('/batches/:id')
     async batch(
