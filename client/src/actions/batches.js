@@ -97,17 +97,17 @@ export const addStudent = (student) => (dispatch) => {
         .catch(err => console.error(err))
 }
 
-const getStudentById = student => ({
+const getStudentById = studentId => ({
     type: GET_STUDENT,
-    payload:student
+    payload:studentId
 })
 
-export const getStudent = (id, student) => (dispatch) => {
+export const getStudent = (studentId) => (dispatch) => {
+    console.log(studentId + 8888)
     request
-        .get(`${baseUrl}/students/${id}`)
-        .then(result => dispatch(getStudentById(student)))
+        .get(`${baseUrl}/students/${studentId}`)
+        .then(response => dispatch(getStudentById(response.body)))
         .catch(err => console.error(err))
-        console.log('student id is working')
 }
 
 export const deleteStudent = (id) => (dispatch) => {

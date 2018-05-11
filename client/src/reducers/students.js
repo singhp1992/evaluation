@@ -1,4 +1,4 @@
-import { GET_STUDENTS, ADD_STUDENT, DELETE_STUDENT } from '../actions/batches'
+import { GET_STUDENTS, ADD_STUDENT, DELETE_STUDENT, GET_STUDENT } from '../actions/batches'
 
 export default function (state = [], { type, payload }) {
     switch (type) {

@@ -70,5 +70,3 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { getStudents, getBatch, addStudent, deleteStudent })(BatchPage)
-
-//this should work

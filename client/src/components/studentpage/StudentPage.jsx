@@ -8,18 +8,26 @@ import NewEvaluation from './NewEvaluation'
 import Paper from 'material-ui/Paper'
 
 class StudentView extends PureComponent {
-    state = {}
+
+    state = {
+
+    }
 
     componentWillMount() {
-        this.props.getStudent(this.props.match.params.id)
+        const studentId = Number((window.location.href).split('/').pop())
+        this.props.getStudent(studentId)
         this.props.getEvaluation(this.props.match.params.id)
+        console.log(studentId)
     }
+
 
     render() {
         const { evaluation, student } = this.props
+        console.log(student, 'hallo')
         return (
             <Paper className="outer-paper">
-                <h1>Student</h1>
+                <h1>{student.firstName} {student.lastName}</h1>
+                <h2>Last Evaluation: {student.lastEvaluation}</h2>
                 <NewEvaluation />
                 {/* {student.map((student) =>
                     <div className="evaluation">
@@ -34,7 +42,7 @@ class StudentView extends PureComponent {
 
 const mapStateToProps = (state) => ({
     batch: state.batch,
-    students: state.students
+    student: state.studentById
 })
 
 export default connect(mapStateToProps, { getStudent, getEvaluation })(StudentView)

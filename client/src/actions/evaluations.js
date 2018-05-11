@@ -11,27 +11,15 @@ const newEvaluation = evaluation => ({
     payload: evaluation
 })
 
-export const addEvaluation = (id, evaluation) => (dispatch, getState) => {
+export const addEvaluation = (evaluation) => (dispatch, getState) => {
     //const state = getState()
+    console.log(evaluation)
     request
-        .post(`${baseUrl}/students/${id}`)
+        .post(`${baseUrl}/evaluations`)
         .send(evaluation)
         .then(result => dispatch(newEvaluation(evaluation)))
         .catch(err => console.error(err))
-        console.log('working working')
 }
-
-// export const addEvaluation = (id) => (dispatch) => {
-//     console.log(student)
-//     //const state = getState()
-//     //add getState to dispatch if needed
-//     //should be posted to the specific batch page? 
-//     request
-//         .post(`${baseUrl}/students/${id}`)
-//         .send(id)
-//         .then(result => dispatch(newEvaluation(id)))
-//         .catch(err => console.error(err))
-// }
 
 export const getEvaluation = (id) => (dispatch) => {
     request

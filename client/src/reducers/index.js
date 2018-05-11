@@ -6,6 +6,8 @@ import batch from './batch'
 import batches from './batches'
 import students from './students'
 import evaluation from './evaluation'
+import studentById from './studentById'
+import addEvaluation from './addEvaluation'
 
 export default {
     users,
@@ -15,5 +17,7 @@ export default {
     batch,
     batches,
     students,
-    evaluation
+    evaluation,
+    studentById,
+    addEvaluation
 }
