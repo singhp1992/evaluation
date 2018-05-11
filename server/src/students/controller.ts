@@ -1,4 +1,4 @@
-import { JsonController, Get, Param, Put, Body, Post, Delete, NotFoundError } from 'routing-controllers'
+import { JsonController, Get, Param, Put, Body, Post, Delete, NotFoundError, HttpCode } from 'routing-controllers'
 import Student from './entity'
 
 @JsonController()
@@ -22,16 +22,16 @@ export default class StudentController {
     }
 
     //get student by batch number
-    @Get('/students/:id([0-9]+')
-    async getStudentByBatchNumber(
-        @Param('id') batchNumber: string
-    ) {
-        const student = await Student.findOne(batchNumber)
+    // @Get('/classstudents/:id([0-9]+)')
+    // @HttpCode(201)
+    // getClassStudents(
+    //     @Param('id') batchRequestId: number
+    // ) {
+    //     console.log('youve made it here')
+    //     let classStudents = Student.find( {batchRequestId: batchRequestId} )
 
-        if (!student) throw new NotFoundError('No students in this batch.')
-
-        return student
-    }
+    //     return classStudents
+    // }
 
     // creates a student
     @Post('/students')

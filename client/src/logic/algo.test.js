@@ -47,9 +47,9 @@ export function calculatePercentages(arrayOfObjects) {
     const yellow = arrayOfObjects.filter(object => object.lastEvaluation === 'yellow').length
     const red = arrayOfObjects.filter(object => object.lastEvaluation === 'red').length
 
-    const greenPercent = green / total * 100
-    const yellowPercent = yellow / total * 100
-    const redPercent = red / total * 100
+    const greenPercent = green / total
+    const yellowPercent = yellow / total
+    const redPercent = red / total
 
     return {
         red: redPercent,
@@ -69,6 +69,6 @@ describe('Calculate Percentages', () => {
     ]
 
     it('returns the correct percentage of students who have the same color evaluation', () => {
-        expect(calculatePercentages(test)).toEqual({ green: 40, yellow: 40, red: 20 })
+        expect(calculatePercentages(test)).toEqual({ green: 0.4, yellow: 0.4, red: 0.2 })
     })
 })

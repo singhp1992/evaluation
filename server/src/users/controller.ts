@@ -1,6 +1,5 @@
 import { JsonController, Get, Param, Body, Post, Authorized } from 'routing-controllers'
 import User from '../users/entity'
-//import io from '../index'
 
 
 @JsonController()

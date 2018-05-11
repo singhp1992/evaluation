@@ -1,5 +1,4 @@
-import { BaseEntity, PrimaryGeneratedColumn, Column, Entity, ManyToOne } from 'typeorm'
-//import  Batch from '../batches/entity'
+import { BaseEntity, PrimaryGeneratedColumn, Column, Entity } from 'typeorm'
 
 @Entity()
 export default class Student extends BaseEntity {
@@ -24,7 +23,4 @@ export default class Student extends BaseEntity {
     @Column('text', { nullable: true })
     lastEvaluation?: string
 
-    
-    // @ManyToOne(_ => Batch, batch => batch.students, { eager: true })
-    // batch: Batch
 }
