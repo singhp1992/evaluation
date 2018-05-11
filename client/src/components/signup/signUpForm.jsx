@@ -2,8 +2,6 @@
 import React, { PureComponent } from 'react'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button';
-//import { FormGroup, FormControlLabel } from 'material-ui/Form'
-//import Checkbox from 'material-ui/Checkbox'
 
 export default class SignUpForm extends PureComponent {
     state = {}
@@ -24,7 +22,6 @@ export default class SignUpForm extends PureComponent {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-
                 <div>
                     <TextField
                         id="firstName"
@@ -39,7 +36,6 @@ export default class SignUpForm extends PureComponent {
                         required
                     />
                 </div>
-
                 <div>
                     <TextField
                         id="lastName"

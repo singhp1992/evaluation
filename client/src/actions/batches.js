@@ -1,6 +1,4 @@
 import * as request from 'superagent'
-//import {isExpired} from '../jwt'
-//import { logout } from './users'
 
 const baseUrl = 'http://localhost:4000'
 
@@ -91,9 +89,7 @@ const newStudent = student => ({
 
 export const addStudent = (student) => (dispatch) => {
     console.log(student)
-    //const state = getState()
-    //add getState to dispatch if needed
-    //should be posted to the specific batch page? 
+
     request
         .post(`${baseUrl}/students/`)
         .send(student)
@@ -101,23 +97,22 @@ export const addStudent = (student) => (dispatch) => {
         .catch(err => console.error(err))
 }
 
+const getStudentById = student => ({
+    type: GET_STUDENT,
+    payload:student
+})
 
-export const getStudent = (userId) => (dispatch) => {
-    
+export const getStudent = (id, student) => (dispatch) => {
     request
-        .get(`${baseUrl}/students/${userId}`)
-        .then(result => {
-            dispatch({
-                type: GET_STUDENT,
-                payload: result.body
-            })
-        })
+        .get(`${baseUrl}/students/${id}`)
+        .then(result => dispatch(getStudentById(student)))
         .catch(err => console.error(err))
+        console.log('student id is working')
 }
 
-export const deleteStudent = (studentId) => (dispatch) => {
+export const deleteStudent = (id) => (dispatch) => {
     request
-        .delete(`${baseUrl}/students/${studentId}`)
+        .delete(`${baseUrl}/students/${id}`)
         .then(result => {
             dispatch({
                 type: DELETE_STUDENT,
@@ -126,23 +121,3 @@ export const deleteStudent = (studentId) => (dispatch) => {
         })
         .catch(err => console.error(err))
 }
-
-//needs to be manipulated
-const newQuestion = question => ({
-    type: ASK_QUESTION,
-    payload: question
-})
-
-//not sure where the question parameter is coming from
-export const askQuestion = (question) => (dispatch) => {
-    console.log(question)
-    //const state = getState()
-    //add getState to dispatch if needed
-    //should be posted to the specific batch page? 
-    request
-        .post(`${baseUrl}/students/`)
-        .send(question)
-        .then(result => dispatch(newQuestion(question)))
-        .catch(err => console.error(err))
-}
-

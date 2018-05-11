@@ -25,24 +25,24 @@ class NewEvaluation extends PureComponent {
         return (
             <form onSubmit={this.handleSubmit}>
                 <TextField
+                    id='date'
+                    name='date'
+                    label='Date'
+                    value={this.state.date || ''}
+                    onChange={this.handleChange}
+                />
+                <TextField
                     id='evaluation'
-                    name='batchNumber'
-                    label='Batch Number'
-                    value={this.state.lastEvaluation || ''}
+                    name='evaluation'
+                    label='Evaluation'
+                    value={this.state.evaluation || ''}
                     onChange={this.handleChange}
                 />
                 <TextField
-                    id='startDate'
-                    name='startDate'
-                    label='Start Date'
-                    value={this.state.startDate || ''}
-                    onChange={this.handleChange}
-                />
-                <TextField
-                    id='endDate'
-                    name='endDate'
-                    label='End Date'
-                    value={this.state.endDate || ''}
+                    id='remarks'
+                    name='remarks'
+                    label='Remarks'
+                    value={this.state.remarks || ''}
                     onChange={this.handleChange}
                 />
                 <Button
@@ -51,7 +51,7 @@ class NewEvaluation extends PureComponent {
                     variant="raised"
                     className="create-batch"
                 >
-                    Create Batch
+                    Save
                 </Button>
             </form>
         )
@@ -61,7 +61,8 @@ class NewEvaluation extends PureComponent {
 
 const mapStateToProps = function (state) {
     return {
-        batches: state.batches
+        batches: state.batches,
+        evaluations: state.evaluations
     }
 }
 

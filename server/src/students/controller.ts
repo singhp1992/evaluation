@@ -17,7 +17,7 @@ export default class StudentController {
         const student = await Student.findOne(id)
 
         if (!student) throw new NotFoundError('No student found.')
-
+        console.log(student)
         return student
     }
 

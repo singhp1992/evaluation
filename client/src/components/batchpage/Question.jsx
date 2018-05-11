@@ -1,21 +1,20 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Button from 'material-ui/Button';
-import { askQuestion } from '../../actions/batches'
 
 const colors = [
     {
-        person:"Student 1",
+        person:"Rebecca",
         color: "red",
         chance: 0.53
     },
     {
-        person:"Student 2",
+        person:"Simi",
         color: "yellow",
         chance: 0.28
     },
     {
-        person:"Student 3",
+        person:"Joey",
         color: "green",
         chance: 0.19
     }
@@ -28,7 +27,6 @@ class AskQuestion extends PureComponent {
 
     handleClick = (e) => {
         e.preventDefault()
-        this.props.askQuestion(this.state)
     }
 
 
@@ -45,11 +43,11 @@ class AskQuestion extends PureComponent {
 
         function getColor(random) {
             for (var i = 0; i < colors.length; i++) {
-                var color = colors[i];
-                if (random < color.chance) {
-                    return color.color;
+                var colorOne = colors[i];
+                if (random < colorOne.chance) {
+                    return colorOne.person;
                 }
-                random -= color.chance;
+                random -= colorOne.chance;
             }
         }
 
@@ -58,7 +56,7 @@ class AskQuestion extends PureComponent {
                 color = getColor(random);
 
             console.log(random);
-            console.log("pick a " + color + " student!");
+            console.log("Ask "+ color + " a question!");
         })
 
         return (
@@ -69,7 +67,7 @@ class AskQuestion extends PureComponent {
                     variant="raised"
                     className="askQuestion"
                 >
-                    ASK QUESTION!
+                    ASK A QUESTION!
                 </Button>
             </form>
         )
@@ -83,4 +81,4 @@ const mapStateToProps = function (state) {
     }
 }
 
-export default connect(mapStateToProps, { askQuestion })(AskQuestion)
+export default connect(mapStateToProps)(AskQuestion)

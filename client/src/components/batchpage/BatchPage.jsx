@@ -6,6 +6,8 @@ import NewStudent from './NewStudent'
 import AskQuestion from './Question'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button';
+import Card from 'material-ui/Card';
+import PercentageBar from './PercentageBar'
 
 class BatchPage extends PureComponent {
     state = {}
@@ -33,8 +35,10 @@ class BatchPage extends PureComponent {
         const { batch, students } = this.props
 
         return (
+
             <Paper className="outer-paper">
                 <h1>Batch</h1>
+                <PercentageBar />
                 <NewStudent />
                 <br />
                 {students.map((student, index) =>
@@ -50,12 +54,10 @@ class BatchPage extends PureComponent {
                         >
                             Delete
                         </Button>
-                        
                     </div>
-                   
                 )}
                 <br />
-                <AskQuestion />
+            <AskQuestion />
             </Paper>
         )
     }

@@ -8,20 +8,20 @@ export default class Evaluation extends BaseEntity {
     @PrimaryGeneratedColumn()
     id?: number
 
-    @Column('text', { nullable: false })
+    @Column('text')
     student: number
 
-    @Column('text', { nullable: false })
+    @Column('text')
     batch: number
 
-    @Column('text', { nullable: false })
+    @Column('text')
     date: string
     //change to Date?
 
-    @Column('text', { nullable: false })
+    @Column('text')
     evaluation: Color
 
-    @Column('text', { nullable: true })
+    @Column('text')
     remarks?: string
 
 }
