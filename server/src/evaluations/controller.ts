@@ -15,15 +15,15 @@ export default class EvaluationController {
     }
 
     //requests all evaluations by class
-    @Get('/classevaluations/:id([0-9]+)')
-    @HttpCode(201)
-    getClassEvaluations(
-        @Param('id') batchRequestId: number
-    ) {
-        let classEvaluations = Evaluation.find({ batch: batchRequestId })
+    // @Get('/classevaluations/:id([0-9]+)')
+    // @HttpCode(201)
+    // getClassEvaluations(
+    //     @Param('id') batchRequestId: number
+    // ) {
+    //     let classEvaluations = Evaluation.find({ batch: batchRequestId })
 
-        return classEvaluations
-    }
+    //     return classEvaluations
+    // }
 
     //requests all evaluations by student
     //make sure this one is correct - we are retrieving it by student

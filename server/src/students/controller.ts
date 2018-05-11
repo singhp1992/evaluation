@@ -10,7 +10,7 @@ export default class StudentController {
     }
 
     // requests one student
-    @Get('/students/:id([0-9]+')
+    @Get('/students/:id')
     async getStudentById(
         @Param('id') id: number
     ) {

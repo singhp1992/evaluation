@@ -8,8 +8,8 @@ export default class Evaluation extends BaseEntity {
     @PrimaryGeneratedColumn()
     id?: number
 
-    @Column('text')
-    student: number
+    // @Column('text')
+    // student: number
 
     @Column('text')
     batch: number
