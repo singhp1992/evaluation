@@ -50,6 +50,13 @@ class NewStudent extends PureComponent {
                     onChange={this.handleChange}
                 />
                 <TextField
+                    id='lastEvaluation'
+                    name='lastEvaluation'
+                    label='Add a Evaluation'
+                    value={this.state.lastEvaluation || ''}
+                    onChange={this.handleChange}
+                />
+                <TextField
                     id='picture'
                     name='profilePic'
                     label='Add a picture'

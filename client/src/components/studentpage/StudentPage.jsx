@@ -8,10 +8,11 @@ import NewEvaluation from './NewEvaluation'
 import Paper from 'material-ui/Paper'
 
 class StudentView extends PureComponent {
+    state = {}
 
     componentWillMount() {
-        this.props.getStudent()
-        this.props.getEvaluation(this.props.id)
+        this.props.getStudent(this.props.match.params.id)
+        this.props.getEvaluation(this.props.match.params.id)
     }
 
     render() {
@@ -20,11 +21,11 @@ class StudentView extends PureComponent {
             <Paper className="outer-paper">
                 <h1>Student</h1>
                 <NewEvaluation />
-                {evaluation.map((evaluation, index) =>
-                    <div className="evaluation" key={index}>
-                        <Link to={`/students/${student.lastEvaluation}`}><h2>First Name: {student.lastEvaluation}</h2></Link>
+                {/* {student.map((student) =>
+                    <div className="evaluation">
+                        <h2>First Name: {student.lastEvaluation}</h2>
                     </div>
-                )}
+                )} */}
             </Paper>
         )
     }

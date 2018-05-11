@@ -14,11 +14,13 @@ const newEvaluation = evaluation => ({
 export const addEvaluation = (id, evaluation) => (dispatch, getState) => {
     //const state = getState()
     request
-        .post(`${baseUrl}/evaluations/`)
+        .post(`${baseUrl}/students/${id}`)
         .send(evaluation)
         .then(result => dispatch(newEvaluation(evaluation)))
         .catch(err => console.error(err))
+        console.log('working working')
 }
+
 // export const addEvaluation = (id) => (dispatch) => {
 //     console.log(student)
 //     //const state = getState()
