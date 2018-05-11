@@ -34,6 +34,9 @@ function randomizer() {
     console.log("pick a " + color + " student!");
 }
 
+//adjust the percentages of students 
+//randomization prin same 
+
 
 
 

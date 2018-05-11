@@ -7,11 +7,18 @@ import '../components.css'
 
 
 class NewEvaluation extends PureComponent {
-    state = {}
+    state = {
+        studentId: Number((window.location.href).split('/').pop()),
+        date: new Date()
+    }
 
-    handleSubmit = (e) => {
+    handleSave = (e) => {
+        const { history, student } = this.state
+        
         e.preventDefault()
         this.props.addEvaluation(this.state)
+        console.log(this.state)
+        history.push(`/batches/${student.batchNumber}`)
     }
 
     handleChange = (e) => {
@@ -20,7 +27,7 @@ class NewEvaluation extends PureComponent {
         this.setState({
             [name]: value
         })
-    };
+    }
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
@@ -62,6 +69,7 @@ class NewEvaluation extends PureComponent {
 const mapStateToProps = function (state) {
     return {
         batches: state.batches,
+        student: state.studentById,
         evaluations: state.evaluations
     }
 }

@@ -15,8 +15,9 @@ class NewBatch extends PureComponent {
     }
 
     handleChange = (e) => {
+        
         const { name, value } = e.target
-
+        console.log(e.target)
         this.setState({
             [name]: value
         })

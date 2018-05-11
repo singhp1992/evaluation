@@ -2,25 +2,6 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Button from 'material-ui/Button';
 
-const colors = [
-    {
-        person:"Rebecca",
-        color: "red",
-        chance: 0.53
-    },
-    {
-        person:"Simi",
-        color: "yellow",
-        chance: 0.28
-    },
-    {
-        person:"Joey",
-        color: "green",
-        chance: 0.19
-    }
-];
-
-
 class AskQuestion extends PureComponent {
 
     state = {}
@@ -40,6 +21,26 @@ class AskQuestion extends PureComponent {
     };
 
     render() {
+        const colors = [
+            {
+                person: "Rebecca",
+                color: "red",
+                chance: 0.53
+                //0.00 - 0.53
+            },
+            {
+                person: "Simi",
+                color: "yellow",
+                chance: 0.28
+                //0.54 - 0.81
+            },
+            {
+                person: "Joey",
+                color: "green",
+                chance: 0.19
+                //0.82-0.99999
+            }
+        ];
 
         function getColor(random) {
             for (var i = 0; i < colors.length; i++) {
