@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { addStudent, deleteStudent, getStudents, getBatch } from '../../actions/batches'
+import { getBatch } from '../../actions/batches'
+import { addStudent, deleteStudent, getStudents } from '../../actions/students'
 import { Link } from 'react-router-dom'
 import NewStudent from './NewStudent'
 //import AskQuestion from './Question'
@@ -11,7 +12,7 @@ import Card from 'material-ui/Card';
 import PercentageBar from './PercentageBar'
 
 //added
-import getRandomStudent from './redoLogic'
+import studentRandomizer from './redoLogic'
 
 class BatchPage extends PureComponent {
     state = {}
@@ -65,7 +66,7 @@ class BatchPage extends PureComponent {
                     color="secondary"
                     variant="raised"
                     className="askQuestion"
-                    onClick={(event) => { getRandomStudent(this.props.students, event) }}
+                    onClick={(event) => { console.log(studentRandomizer(this.props.students, event)) }}
 
                 >
                     HERE WE GO BITCHES
