@@ -3,11 +3,15 @@ import { connect } from 'react-redux'
 import { addStudent, deleteStudent, getStudents, getBatch } from '../../actions/batches'
 import { Link } from 'react-router-dom'
 import NewStudent from './NewStudent'
-import AskQuestion from './Question'
+//import AskQuestion from './Question'
+import AskAnotherQuestion from './QuestionAgain'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button';
 import Card from 'material-ui/Card';
 import PercentageBar from './PercentageBar'
+
+//added
+import getRandomStudent from './redoLogic'
 
 class BatchPage extends PureComponent {
     state = {}
@@ -56,8 +60,18 @@ class BatchPage extends PureComponent {
                         </Button>
                     </div>
                 )}
+                <Button
+                    type='submit'
+                    color="secondary"
+                    variant="raised"
+                    className="askQuestion"
+                    onClick={(event) => { getRandomStudent(this.props.students, event) }}
+
+                >
+                    HERE WE GO BITCHES
+                        </Button>
                 <br />
-            <AskQuestion />
+            {/* <AskAnotherQuestion /> */}
             </Paper>
         )
     }
