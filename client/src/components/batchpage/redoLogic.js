@@ -4,15 +4,46 @@ import Button from 'material-ui/Button';
 
 import { getBatches, getBatch } from '../../actions/batches'
 
-export default function studentRandomizer(arrayOfObjects, event) {
-    event.preventDefault()
+export default function studentRandomizer(arrayO, event) {
+
+    //loop through the array of objects to get the student names of the red/yellow/green
 
     const number = Math.floor(Math.random() * 100)
-    const red = arrayOfObjects.filter(object => object.lastEvaluation === 'red')
-    const yellow = arrayOfObjects.filter(object => object.lastEvaluation === 'yellow')
-    console.log(red )
+    const red = arrayO.filter(object => object.lastEvaluation === 'red')
+    const yellow = arrayO.filter(object => object.lastEvaluation === 'yellow')
+    console.log(red)
 
-    let color
+    // function workBitch(red) {
+    //     for(var i= 0; i < red.length; i++) {
+    //         if(red[i].lastEvaluation === red) {
+    //             return console.log(red.firstName + 'hehe')
+    //         }
+    //     }
+    // }
+    //     function getColor(random) {
+    //         for (var i = 0; i < colors.length; i++) {
+    //             var color = colors[i];
+    //             if (random < color.chance) {
+    //                 return color.color;
+    //             }
+    //             random -= color.chance;
+    //         }
+    //     }
+    
+    function getNewArray() {
+        var newArray = []
+        for (var i = 0; i < red.length; i++) {
+        let reed = red[i]
+        if (red[i].lastEvaluation === "red") {
+            console.log(reed.id)
+        }
+    }
+    return newArray;
+    }
+
+    console.log(getNewArray())
+
+    let color 
 
     if (red.length <= 2) {
         if (number <= 33) color = 'RED'
@@ -25,22 +56,20 @@ export default function studentRandomizer(arrayOfObjects, event) {
         if (number > 66) color = 'GREEN'
 
     } else {
-
         if (number <= 53) color = 'RED'
         if (number > 53 && number <= 81) color = 'YELLOW'
         if (number > 81) color = 'GREEN'
     }
 
     console.log('here comes the ' + color)
-    //need to figure out why the colormatcher isn't showing up in the console.log!
-    //everything else is working but it doesn't like the function for color matcher -  nothing is 
-    //showing up in the console.log
-
-    const colorMatcher = arrayOfObjects.filter(object => object.lastEvaluation === color)
+    //add for loop here and then filter it to the color Matcher
+    const colorMatcher = arrayO.filter(object => object.lastEvaluation === color)
 
     console.log(colorMatcher + 'this should be color Matcher')
 
     const randomStudent = colorMatcher[Math.floor(Math.random() * colorMatcher.length)]
+
+    console.log('here is the ' + randomStudent)
    
     if (randomStudent !== undefined) {
         return alert(randomStudent.firstName + ' has a ' + randomStudent.lastEvaluation + ' evaluation!, Ask a question!!!!! :-) ')
@@ -51,3 +80,6 @@ export default function studentRandomizer(arrayOfObjects, event) {
     }
 
 }
+//tomorrow
+//1. make the result of the for loop into an array
+//2. add the loop after the color 
