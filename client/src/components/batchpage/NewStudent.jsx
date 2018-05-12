@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
-import { addStudent } from '../../actions/batches'
+import { addStudent } from '../../actions/students'
 
 
 class NewStudent extends PureComponent {

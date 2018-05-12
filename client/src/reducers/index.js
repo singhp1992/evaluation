@@ -8,6 +8,7 @@ import students from './students'
 import evaluation from './evaluation'
 import studentById from './studentById'
 import addEvaluation from './addEvaluation'
+import student from './student'
 
 export default {
     users,
@@ -19,5 +20,6 @@ export default {
     students,
     evaluation,
     studentById,
-    addEvaluation
+    addEvaluation,
+    student
 }

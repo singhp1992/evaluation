@@ -1,4 +1,4 @@
-import { GET_STUDENT } from '../actions/batches'
+import { GET_STUDENT } from '../actions/students'
 
 export default function (state = [], { type, payload }) {
     switch (type) {

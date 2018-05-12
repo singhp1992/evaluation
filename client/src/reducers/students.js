@@ -1,16 +1,15 @@
-import { GET_STUDENTS, ADD_STUDENT, DELETE_STUDENT, GET_STUDENT } from '../actions/batches'
+import { ADD_STUDENT, GET_STUDENTS, DELETE_STUDENT } from '../actions/students'
+// [user1, user2, user3] [[user1, user2] user3]
 
-export default function (state = [], { type, payload }) {
+export default (state = [], { type, payload }) => {
     switch (type) {
         case GET_STUDENTS:
-        console.log('reducer is working')
             return payload
 
         case ADD_STUDENT:
             return [...state, payload]
 
         case DELETE_STUDENT:
-        console.log('deleted')
             return state.filter(student => student.id !== payload.id)
 
         default:

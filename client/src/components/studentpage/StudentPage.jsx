@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 //need to add student by id - you have an endpoint 
 import { getEvaluation } from '../../actions/evaluations'
-import { getStudent } from '../../actions/batches'
+import { getStudent } from '../../actions/students'
 import { Link } from 'react-router-dom'
 import NewEvaluation from './NewEvaluation'
 import Paper from 'material-ui/Paper'
