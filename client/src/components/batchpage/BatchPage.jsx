@@ -11,6 +11,7 @@ import PercentageBar from './PercentageBar'
 import './students.css'
 import Grid from 'material-ui/Grid'
 import Typography from 'material-ui/Typography'
+import Avatar from 'material-ui/Avatar';
 
 //added
 import studentRandomizer from './redoLogic'
@@ -34,22 +35,14 @@ class BatchPage extends PureComponent {
                 <NewStudent />
                 <br />
                 {students.map((student, index) =>
-                    <Card className="student" key={index}>
-                        <CardMedia
-                            className='media'
-                            title='student pic'
-                            image={student.profilePic}
-                            height="150" 
-                            width="200"
-                            style={{ height: 0, paddingTop: '56.25%' }}
-                        />
+                    <Card className="student-card" key={index}>
                         <CardContent>
                             <Typography variant="headline" component="h2">
                                 Name: {student.firstName} {student.lastName}
-                            </Typography>
-                            <Typography component="p">
+                                <br />
                                 Last Evaluation: {student.lastEvaluation}
                             </Typography>
+                            <Avatar src={student.profilePic} style={{ margin: 'auto', width: 150, height: 150 }} />
                         </CardContent>
                         <CardActions>
                             <Link to={`/students/${student.id}`}>
@@ -74,7 +67,7 @@ class BatchPage extends PureComponent {
                     onClick={(event) => { studentRandomizer(this.props.students, event) }}
 
                 >
-                    HERE WE GO BITCHES
+                    ask a question
                         </Button>
                 <br />
                 {/* <AskAnotherQuestion /> */}
