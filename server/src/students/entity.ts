@@ -20,7 +20,7 @@ export default class Student extends BaseEntity {
     @Column('text', { nullable: true })
     profilePic: string 
 
-    @Column('text', { nullable: true })
-    lastEvaluation?: string
+    @Column('text')
+    lastEvaluation: string 
 
 }

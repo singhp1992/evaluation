@@ -26,6 +26,7 @@ export default class StudentController {
     // @HttpCode(201)
     // getClassStudents(
     //     @Param('id') batchRequestId: number
+    //         @Body() update: Partial<Student>
     // ) {
     //     console.log('youve made it here')
     //     let classStudents = Student.find( {batchRequestId: batchRequestId} )
@@ -66,6 +67,27 @@ export default class StudentController {
         if (student) Student.delete(id)
         return 'successfully deleted'
     }
+
+    @Get('/students/:lastEvaluation')
+    @HttpCode(201)
+    async getEvaluation(
+        @Param('lastEvaluation') lastEvaluation: string,
+    ) {
+        console.log('the last evaluation is working!')
+        // const student = await Students.findOneById(id)
+        return await Student.findOne(lastEvaluation)
+    }
+
+    // @Get('/students/:id')
+    // async getStudentById(
+    //     @Param('id') id: number
+    // ) {
+    //     const student = await Student.findOne(id)
+
+    //     if (!student) throw new NotFoundError('No student found.')
+    //     console.log(student)f
+    //     return student
+    // }
 
 
 
