@@ -1,4 +1,4 @@
-import { GET_EVALUATIONS, ADD_EVALUATIONS, ADD_EVALUATION } from '../actions/evaluations'
+import { GET_EVALUATIONS, ADD_EVALUATION } from '../actions/evaluations'
 
 export default function (state = [], { type, payload }) {
     switch (type) {

@@ -13,11 +13,10 @@ class LogInPage extends PureComponent {
     }
 
     render() {
-        console.log(this.props.currentUser)
         if (this.props.currentUser) return (
             <Redirect to="/batches" />
         )
-
+        
         return (
             <Paper className="outer-paper">
                 <h1>Login</h1>

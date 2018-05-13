@@ -8,7 +8,7 @@ export const ADD_STUDENT = 'ADD_STUDENT'
 export const DELETE_STUDENT = 'DELETE_STUDENT'
 
 export const getStudents = () => (dispatch, getState) => {
-    const state = getState()
+    //const state = getState()
     console.log('action')
     request
         .get(`${baseUrl}/students`)
@@ -21,9 +21,8 @@ export const getStudents = () => (dispatch, getState) => {
         .catch(err => console.error(err))
 }
 
-//not sure how to use this
 export const getStudentsByBatchNumber = () => (dispatch, getState) => {
-    const state = getState()
+    //const state = getState()
     console.log('students by batchNumber')
     request
         .get(`${baseUrl}/students`)

@@ -65,7 +65,7 @@ class BatchPage extends PureComponent {
                     color="secondary"
                     variant="raised"
                     className="askQuestion"
-                    onClick={(event) => { console.log(studentRandomizer(this.props.students, event)) }}
+                    onClick={(event) => { studentRandomizer(this.props.students, event) }}
 
                 >
                     HERE WE GO BITCHES

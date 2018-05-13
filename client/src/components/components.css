@@ -2,5 +2,18 @@
     margin: auto;
     margin-top: 20px;
     padding: 20px;
-    width: 60%;
+    width: 20%;
   }
+
+.batch-card {
+  margin: 20px 10px 10px 0px;
+}
+
+
+/* .style {
+  height: 200;
+  width: 300;
+  margin: auto;
+  text-align: center;
+  display: inline-block;
+}; */

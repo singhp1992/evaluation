@@ -46,3 +46,32 @@ function randomizer() {
 
 
 
+// function workBitch(red) {
+//     for (var i = 0; i < red.length; i++) {
+//         if (red[i].lastEvaluation === red) {
+//             return console.log(red.firstName + 'hehe')
+//         }
+//     }
+// }
+// function getColor(random) {
+//     for (var i = 0; i < colors.length; i++) {
+//         var color = colors[i];
+//         if (random < color.chance) {
+//             return color.color;
+//         }
+//         random -= color.chance;
+//     }
+// }
+
+// function getNewArray() {
+//     var newArray = []
+//     for (var i = 0; i < red.length; i++) {
+//         let reed = red[i]
+//         if (red[i].lastEvaluation === "red") {
+//             console.log(reed.firstName + " " + reed.lastName + reed.lastEvaluation)
+//         }
+//     }
+//     return newArray;
+// }
+
+// console.log(getNewArray())
