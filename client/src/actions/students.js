@@ -63,9 +63,9 @@ export const getStudent = (studentId) => (dispatch) => {
         .catch(err => console.error(err))
 }
 
-export const deleteStudent = (id) => (dispatch) => {
+export const deleteStudent = (studentId) => (dispatch) => {
     request
-        .delete(`${baseUrl}/students/${id}`)
+        .delete(`${baseUrl}/students/${studentId}`)
         .then(result => {
             dispatch({
                 type: DELETE_STUDENT,

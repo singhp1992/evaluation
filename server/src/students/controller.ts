@@ -57,15 +57,16 @@ export default class StudentController {
     }
 
     // deletes a student
-    @Delete('/students/:id')
+    @Delete('/students/:id([0-9]+)')
     async deleteStudent(
-        @Param('id') id: number
+        @Param('id') studentId: number
     ) {
-        const student = await Student.findOne(id)
+        const student = await Student.findOne(studentId)
         if (!student) throw new NotFoundError('Student doesn\'t exist')
 
-        if (student) Student.delete(id)
-        return 'successfully deleted'
+        await student.remove()
+
+        return { id: studentId }
     }
 
     @Get('/students/:lastEvaluation')

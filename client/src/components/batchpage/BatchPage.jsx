@@ -21,10 +21,13 @@ class BatchPage extends PureComponent {
 
     componentWillMount() {
         this.props.getBatch(this.props.match.params.id)
-        this.props.getStudents(this.props.match.params.d)
-        this.props.deleteStudent(this.props.match.params.id)
+        this.props.getStudents(this.props.match.params.id)
     }
 
+    deleteStudent = (studentId) => {
+        this.props.deleteStudent(studentId)
+    }
+    
     render(index) {
         const { batch, students } = this.props
 
@@ -52,7 +55,7 @@ class BatchPage extends PureComponent {
                             <Button type='submit'
                                 color="secondary"
                                 variant="raised"
-                                onClick={() => this.props.deleteStudent(student.id)}
+                                onClick={() => this.deleteStudent(student.id)}
                             >
                                 Delete
                         </Button>
