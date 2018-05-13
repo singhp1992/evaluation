@@ -1,5 +1,5 @@
 import { ADD_STUDENT, GET_STUDENTS, DELETE_STUDENT } from '../actions/students'
-// [user1, user2, user3] [[user1, user2] user3]
+
 
 export default (state = [], { type, payload }) => {
     switch (type) {
@@ -10,6 +10,7 @@ export default (state = [], { type, payload }) => {
             return [...state, payload]
 
         case DELETE_STUDENT:
+            console.log('reducer removed')
             return state.filter(student => student.id !== payload.id)
 
         default:

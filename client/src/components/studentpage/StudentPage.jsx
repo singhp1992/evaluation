@@ -6,6 +6,8 @@ import { getStudent } from '../../actions/students'
 import { Link } from 'react-router-dom'
 import NewEvaluation from './NewEvaluation'
 import Paper from 'material-ui/Paper'
+import Card, { CardHeader, CardContent } from 'material-ui/Card';
+import { Typography } from 'material-ui';
 
 class StudentView extends PureComponent {
 
@@ -25,16 +27,15 @@ class StudentView extends PureComponent {
         const { evaluation, student } = this.props
         console.log(student, 'hallo')
         return (
-            <Paper className="outer-paper">
-                <h1>{student.firstName} {student.lastName}</h1>
-                <h2>Last Evaluation: {student.lastEvaluation}</h2>
-                <NewEvaluation />
-                {/* {student.map((student) =>
-                    <div className="evaluation">
-                        <h2>First Name: {student.lastEvaluation}</h2>
-                    </div>
-                )} */}
-            </Paper>
+            <Card className="outer-paper">
+                <CardContent>
+                    <Typography>
+                        <h1>{student.firstName} {student.lastName}</h1>
+                        <h2>Last Evaluation: {student.lastEvaluation}</h2>
+                    </Typography>
+                    <NewEvaluation />
+                </CardContent>
+            </Card>
         )
     }
 }
