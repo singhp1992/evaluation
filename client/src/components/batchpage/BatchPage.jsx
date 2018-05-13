@@ -4,9 +4,7 @@ import { getBatch } from '../../actions/batches'
 import { addStudent, deleteStudent, getStudents } from '../../actions/students'
 import { Link } from 'react-router-dom'
 import NewStudent from './NewStudent'
-//import AskQuestion from './Question'
-import AskAnotherQuestion from './QuestionAgain'
-import Paper from 'material-ui/Paper'
+//import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import PercentageBar from './PercentageBar'
@@ -18,7 +16,7 @@ import Typography from 'material-ui/Typography'
 import studentRandomizer from './redoLogic'
 
 class BatchPage extends PureComponent {
-    state = {}
+    state = { }
 
     componentWillMount() {
         this.props.getBatch(this.props.match.params.id)
@@ -30,7 +28,7 @@ class BatchPage extends PureComponent {
         const { batch, students } = this.props
 
         return (
-            <Grid item xs={12} sm={4} key={index}>
+            <Grid className="outer-paper">
                 <h1>Batch</h1>
                 <PercentageBar />
                 <NewStudent />
