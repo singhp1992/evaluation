@@ -7,6 +7,8 @@ export default function studentRandomizer(students, event) {
     const green = students.filter(object => object.lastEvaluation === 'green')
     const redEqualsYellow = (2 * red.length)
     const redEqualsGreen = (3 * red.length)
+    const smallYellow = (2 * yellow.length)
+    const smallGreen = (3 * green.length )
 
     let color
 
@@ -26,6 +28,10 @@ export default function studentRandomizer(students, event) {
         if (number <= 40) color = 'red'
         if (number > 40 && number <= 60) color = 'yellow'
         if (number > 60) color = 'green'
+    } else if (red.length >= smallYellow || red.length >= smallGreen) {
+        if (number <= 65) color = 'red'
+        if (number > 65 && number <= 85) color = 'yellow'
+        if (number > 85) color = 'green'
     } else {
         if (number <= 53) color = 'red'
         if (number > 53 && number <= 81) color = 'yellow'
