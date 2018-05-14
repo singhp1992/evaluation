@@ -1,11 +1,13 @@
 export default function studentRandomizer(students, event) {
 
     const number = Math.floor(Math.random() * 100)
+
     const red = students.filter(object => object.lastEvaluation === 'red')
     const yellow = students.filter(object => object.lastEvaluation === 'yellow')
     const green = students.filter(object => object.lastEvaluation === 'green')
     const redEqualsYellow = (2 * red.length)
     const redEqualsGreen = (3 * red.length)
+
     let color
 
     if (red.length <= 2) {
@@ -36,7 +38,10 @@ console.log(number)
 
 
 const colorMatcher = students.filter(object => object.lastEvaluation === color)
+
 const randomStudent = colorMatcher[Math.floor(Math.random() * colorMatcher.length)]
+
+console.log(colorMatcher.length)
 
 if (randomStudent !== undefined) {
     return alert('Ask ' + randomStudent.firstName + ' ' + randomStudent.lastName + ' a question. They have a ' + randomStudent.lastEvaluation + ' evaluation')

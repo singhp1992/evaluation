@@ -84,3 +84,4 @@ const mapStateToProps = function (state) {
 }
 
 export default connect(mapStateToProps, { addStudent })(NewStudent)
+
