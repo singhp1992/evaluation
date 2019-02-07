@@ -14,7 +14,7 @@ const fetchBatches = batches => ({
 
 
 export const getBatches = () => (dispatch, getState) => {
-    //const state = getState()
+    const state = getState()
     request
         .get(`${baseUrl}/batches`)
         .then(result => dispatch(fetchBatches(result.body)))
