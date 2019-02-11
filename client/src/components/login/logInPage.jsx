@@ -18,7 +18,7 @@ class LogInPage extends PureComponent {
         )
         
         return (
-            <Paper className="login-paper">
+            <Paper className="paper">
                 <h1>Login</h1>
 
                 <LogInForm onSubmit={this.handleSubmit} />
