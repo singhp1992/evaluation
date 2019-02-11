@@ -18,12 +18,12 @@ class LogInPage extends PureComponent {
         )
         
         return (
-            <Paper className="outer-paper">
+            <Paper className="login-paper">
                 <h1>Login</h1>
 
                 <LogInForm onSubmit={this.handleSubmit} />
 
-                {this.props.error && <span style={{ color: 'red' }}>{this.props.error}</span>}
+                {this.props.error && <span style={{ color: 'blue' }}>{this.props.error}</span>}
             </Paper>
         )
     }

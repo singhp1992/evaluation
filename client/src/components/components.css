@@ -1,19 +1,26 @@
 .outer-paper {
-    margin: auto;
+    margin: center;
     margin-top: 20px;
-    padding: 20px;
-    width: 20%;
+    padding: 80px;
+    width: 80%;
   }
 
 .batch-card {
-  margin: 20px 10px 10px 0px;
+  margin: 50px 10px 10px 0px;
 }
 
 
 /* .style {
   height: 200;
   width: 300;
-  margin: auto;
+  margin-top: auto;
   text-align: center;
   display: inline-block;
 }; */
+
+.login-paper {
+  margin-top: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 90px; 
+};
