@@ -3,8 +3,6 @@
 > A tool to track classes and evaluations
 > Created as one of my final projects at Codaisseur in 2018
 
-## :large_blue_diamond: In Progress!
-
 ## Quickstart :rocket:
 
  1. clone this repo
