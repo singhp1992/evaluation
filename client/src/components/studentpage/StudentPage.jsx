@@ -3,10 +3,8 @@ import { connect } from 'react-redux'
 //need to add student by id - you have an endpoint 
 import { getEvaluation } from '../../actions/evaluations'
 import { getStudent } from '../../actions/students'
-import { Link } from 'react-router-dom'
 import NewEvaluation from './NewEvaluation'
-import Paper from 'material-ui/Paper'
-import Card, { CardHeader, CardContent } from 'material-ui/Card';
+import Card, { CardContent } from 'material-ui/Card';
 import { Typography } from 'material-ui';
 
 class StudentView extends PureComponent {
@@ -24,7 +22,7 @@ class StudentView extends PureComponent {
 
 
     render() {
-        const { evaluation, student } = this.props
+        const { student } = this.props
         console.log(student, 'hallo')
         return (
             <Card className="outer-paper">
