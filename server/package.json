@@ -17,7 +17,7 @@
     "koa-router": "^8.0.0-alpha.1",
     "pg": "6",
     "routing-controllers": "^0.7.7",
-    "sequelize": "^5.9.0",
+    "sequelize": "^5.21.2",
     "typeorm": "^0.2.18"
   },
   "scripts": {
