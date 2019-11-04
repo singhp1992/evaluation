@@ -11,14 +11,14 @@
     "bcrypt": "^2.0.1",
     "express": "^4.17.1",
     "kcors": "^2.2.1",
-    "koa": "^2.5.1",
-    "koa-bodyparser": "^4.2.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
     "koa-multer": "^1.0.2",
     "koa-router": "^8.0.0-alpha.1",
     "pg": "6",
     "routing-controllers": "^0.7.7",
     "sequelize": "^5.9.0",
-    "typeorm": "^0.2.5"
+    "typeorm": "^0.2.18"
   },
   "scripts": {
     "start": "node ."
