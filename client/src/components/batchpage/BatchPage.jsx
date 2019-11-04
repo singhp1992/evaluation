@@ -4,9 +4,8 @@ import { getBatch } from '../../actions/batches'
 import { addStudent, deleteStudent, getStudents } from '../../actions/students'
 import { Link } from 'react-router-dom'
 import NewStudent from './NewStudent'
-//import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
 import PercentageBar from './PercentageBar'
 import './students.css'
 import Grid from 'material-ui/Grid'
@@ -29,7 +28,7 @@ class BatchPage extends PureComponent {
     }
     
     render(index) {
-        const { batch, students } = this.props
+        const { students } = this.props
 
         return (
             <Grid className="outer-paper">
