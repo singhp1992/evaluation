@@ -18,7 +18,7 @@
     "pg": "6",
     "routing-controllers": "^0.7.7",
     "sequelize": "^5.9.0",
-    "typeorm": "^0.2.18"
+    "typeorm": "^0.2.25"
   },
   "scripts": {
     "start": "node ."
