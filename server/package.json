@@ -9,7 +9,7 @@
     "@types/koa-multer": "^1.0.0",
     "@types/koa-router": "^7.0.28",
     "bcrypt": "^2.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "kcors": "^2.2.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
